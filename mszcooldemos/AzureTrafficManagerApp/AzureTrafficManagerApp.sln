@@ -1,0 +1,39 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AzureTrafficManagerApp", "AzureTrafficManagerApp\AzureTrafficManagerApp.csproj", "{E9E09C3F-1255-4B98-BBB1-3A8C52AFB8BA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AzureTrafficManagerApp.AvailabilityRepository", "AzureTrafficManagerApp.AvailabilityRepository\AzureTrafficManagerApp.AvailabilityRepository.csproj", "{4874678E-9611-4914-B5FD-9BBF301E302A}"
+EndProject
+Project("{CC5FD16D-436D-48AD-A40C-5A424C6E3E79}") = "AzureTrafficManagerApp.Azure", "AzureTrafficManagerApp.Azure\AzureTrafficManagerApp.Azure.ccproj", "{5627BEA8-4240-4355-817D-5F2E63DE7B52}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{AC8A90C4-0FCA-46F9-944E-91406E8C8AF5}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E9E09C3F-1255-4B98-BBB1-3A8C52AFB8BA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E9E09C3F-1255-4B98-BBB1-3A8C52AFB8BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E9E09C3F-1255-4B98-BBB1-3A8C52AFB8BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E9E09C3F-1255-4B98-BBB1-3A8C52AFB8BA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4874678E-9611-4914-B5FD-9BBF301E302A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4874678E-9611-4914-B5FD-9BBF301E302A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4874678E-9611-4914-B5FD-9BBF301E302A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4874678E-9611-4914-B5FD-9BBF301E302A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5627BEA8-4240-4355-817D-5F2E63DE7B52}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5627BEA8-4240-4355-817D-5F2E63DE7B52}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5627BEA8-4240-4355-817D-5F2E63DE7B52}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5627BEA8-4240-4355-817D-5F2E63DE7B52}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

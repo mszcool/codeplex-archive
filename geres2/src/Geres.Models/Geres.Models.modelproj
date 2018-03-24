@@ -1,0 +1,136 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{d95612fb-ab04-47b9-bd1c-9faf1a2080cb}</ProjectGuid>
+    <ArchitectureToolsVersion>2.0.0.0</ArchitectureToolsVersion>
+    <Name>Geres.Models</Name>
+    <RootNamespace>Geres.Models</RootNamespace>
+    <ValidateArchitecture>
+    </ValidateArchitecture>
+    <NoWarn>
+    </NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(VSToolsPath)\ArchitectureTools\Microsoft.VisualStudio.TeamArchitect.ModelingProject.targets" Condition="'$(VSToolsPath)' != ''" />
+  <ItemGroup>
+    <Folder Include="ModelDefinition\" />
+    <Content Include="Geres.DependenciesGraph.dgml">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ModelDefinition\Geres.Models.uml">
+      <SubType>Content</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Validate Include="Geres.ComponentLayout.layerdiagram">
+      <SubType>Content</SubType>
+    </Validate>
+    <Validate Include="Geres.ComponentLayout.layerdiagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>Geres.ComponentLayout.layerdiagram</DependentUpon>
+    </Validate>
+    <Validate Include="Geres.ComponentLayout.layerdiagram.suppressions">
+      <SubType>Content</SubType>
+      <DependentUpon>Geres.ComponentLayout.layerdiagram</DependentUpon>
+    </Validate>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AutoScaler\Geres.Azure.PaaS.AutoScaler.csproj">
+      <Name>Geres.Azure.PaaS.AutoScaler</Name>
+      <Project>{25fe0f1b-a0a1-4c5c-a0ce-6308893625f1}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\Geres.AutoScaler.Interfaces\Geres.AutoScaler.Interfaces.csproj">
+      <Name>Geres.AutoScaler.Interfaces</Name>
+      <Project>{ea57a5d5-70e2-4ded-83df-2216dd11efe0}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\Geres.AutoScaler\Geres.AutoScaler.csproj">
+      <Name>Geres.AutoScaler</Name>
+      <Project>{fb048276-48b1-47ea-a06d-3c6b9fcac660}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\Geres.ClientSdk.Core\Geres.ClientSdk.Core.csproj">
+      <Name>Geres.ClientSdk.Core</Name>
+      <Project>{4b769607-a5bf-4813-b2bc-c3b1202bd9b7}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\Geres.ClientSdk.NetFx\Geres.ClientSdk.NetFx.csproj">
+      <Name>Geres.ClientSdk.NetFx</Name>
+      <Project>{58b5bb89-f248-4b02-bb86-6c034e0cf4fa}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\Geres.Common.Entities\Geres.Common.Entities.csproj">
+      <Name>Geres.Common.Entities</Name>
+      <Project>{28e95b9c-4e68-44df-8595-395a7693905f}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\Geres.Common\Geres.Common.csproj">
+      <Name>Geres.Common</Name>
+      <Project>{4c62427a-679d-41a6-9594-5de2061c0d3a}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\Geres.Diagnostics\Geres.Diagnostics.csproj">
+      <Name>Geres.Diagnostics</Name>
+      <Project>{1302b5e7-839b-457d-bb16-e34776c3cdb6}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\Geres.Engine.BuiltInJobs\Geres.Engine.BuiltInJobs.csproj">
+      <Name>Geres.Engine.BuiltInJobs</Name>
+      <Project>{7d44ce4e-347e-4e9f-b7c1-222960b51376}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\Geres.Engine.Common\Geres.Engine.Common.csproj">
+      <Name>Geres.Engine.Common</Name>
+      <Project>{a80005c8-8677-4122-ab48-446c92f5c294}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\Geres.Engine\Geres.Engine.csproj">
+      <Name>Geres.Engine</Name>
+      <Project>{4d1c307d-17d4-43f8-aa0b-7f4bf20ca1d7}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\Geres.Repositories\Geres.Repositories.csproj">
+      <Name>Geres.Repositories</Name>
+      <Project>{251d260f-29ce-42aa-b56f-a2fc9d45f71d}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\Geres.Util\Geres.Util.csproj">
+      <Name>Geres.Util</Name>
+      <Project>{974252fd-1725-4b71-ba03-78557a3f1f8a}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\JobHub\Geres.Azure.PaaS.JobHub.csproj">
+      <Name>Geres.Azure.PaaS.JobHub</Name>
+      <Project>{cc987857-ddad-4a35-bd81-6ad7819675aa}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\JobProcessor\Geres.Azure.PaaS.JobProcessor.csproj">
+      <Name>Geres.Azure.PaaS.JobProcessor</Name>
+      <Project>{01e6eeef-9a96-4866-90c3-805644f19103}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\Samples\End2End\Geres.Samples.ThumbnailGeneratorClient\Geres.Samples.ThumbnailGeneratorClient.csproj">
+      <Name>Geres.Samples.ThumbnailGeneratorClient</Name>
+      <Project>{458c6222-95a7-4af5-a341-c74d9a285e0c}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\Samples\End2End\Geres.Samples.ThumbnailGeneratorJob\Geres.Samples.ThumbnailGeneratorJob.csproj">
+      <Name>Geres.Samples.ThumbnailGeneratorJob</Name>
+      <Project>{4fde8b47-2b57-4a69-95d1-e6fc6a43f4d6}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\Samples\End2End\ThumbnailProducerApp\ThumbnailProducerApp.csproj">
+      <Name>ThumbnailProducerApp</Name>
+      <Project>{673b38c0-c387-4d30-9888-2403e87765da}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\Samples\GeresAutoscalePolicySamples\GeresAutoscalerPolicySamples.csproj">
+      <Name>GeresAutoscalerPolicySamples</Name>
+      <Project>{0c89398a-6633-4159-880a-65149487ba5d}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\Samples\GeresJobRequestorSampleConsole\GeresJobRequestorSampleConsole.csproj">
+      <Name>GeresJobRequestorSampleConsole</Name>
+      <Project>{d9aac0b9-81b6-4bd3-a7f4-8a2ce0b9a139}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\Samples\GeresSimpleJobSamples\GeresJobSamples.csproj">
+      <Name>GeresJobSamples</Name>
+      <Project>{aff84ed7-8814-410d-ba73-345b726f1864}</Project>
+    </ProjectReference>
+  </ItemGroup>
+</Project>

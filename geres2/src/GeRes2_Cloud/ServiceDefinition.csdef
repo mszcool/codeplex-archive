@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ServiceDefinition name="GeRes_PoC" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition" schemaVersion="2013-10.2.2">
+  <WorkerRole name="Geres.Azure.PaaS.JobProcessor" vmsize="Small">
+    <Runtime executionContext="elevated" />
+    <Startup>
+      <Task commandLine="startup.cmd" executionContext="elevated" taskType="simple" />
+    </Startup>
+    <Imports>
+      <Import moduleName="Diagnostics" />
+    </Imports>
+    <ConfigurationSettings>
+      <Setting name="Geres.Storage.ConnectionString" />
+      <Setting name="Geres.Messaging.SignalR.HubURL" />
+      <Setting name="Geres.Config.WorkerAttemptsToWorkBeforeIdle" />
+      <Setting name="Geres.Messaging.ServiceBusConnectionString" />
+      <Setting name="Geres.Diagnostics.StorageConnectionString" />
+      <Setting name="Geres.JobProcessor.IntervalBetweenJobQueriesInMilliSeconds.Short" />
+      <Setting name="Geres.JobProcessor.IntervalBetweenJobQueriesInMilliSeconds.Long" />
+      <Setting name="Geres.JobProcessor.IdlePingIntervalToAutoScalerInSeconds" />
+      <Setting name="Geres.JobProcessor.AutoScalerCommandCheckIntervalInSeconds" />
+      <Setting name="Geres.Diagnostics.Level" />
+      <Setting name="Geres.JobProcessor.MessageLockTimeInMinutes" />
+      <Setting name="Geres.JobProcessor.MessageRetryAttempts" />
+      <Setting name="Geres.AutoScaler.EnableGeresAutoScaler" />
+      <Setting name="Geres.JobProcessor.Cancellation.EnableSingleJobCancellation" />
+      <Setting name="Geres.JobProcessor.Cancellation.SingleJobCancellationTimeWindowInSeconds" />
+      <Setting name="Geres.JobProcessor.Cancellation.SingleJobCancellationMessageTimeToLiveInSeconds" />
+    </ConfigurationSettings>
+    <LocalResources>
+      <LocalStorage name="localjobexecutionstorage" cleanOnRoleRecycle="true" sizeInMB="2000" />
+      <LocalStorage name="localtempjobpackagestorage" cleanOnRoleRecycle="true" sizeInMB="500" />
+    </LocalResources>
+  </WorkerRole>
+  <WebRole name="Geres.Azure.PaaS.JobHub" vmsize="ExtraSmall">
+    <Sites>
+      <Site name="Web">
+        <Bindings>
+          <Binding name="Endpoint1" endpointName="SignalR" />
+        </Bindings>
+      </Site>
+    </Sites>
+    <Endpoints>
+      <InputEndpoint name="SignalR" protocol="http" port="80" />
+    </Endpoints>
+    <Imports>
+      <Import moduleName="Diagnostics" />
+    </Imports>
+    <ConfigurationSettings>
+      <Setting name="Geres.Storage.ConnectionString" />
+      <Setting name="Geres.Messaging.ServiceBusConnectionString" />
+      <Setting name="Geres.Security.AzureAdTenant" />
+      <Setting name="Geres.Security.AzureAdAudienceUri" />
+      <Setting name="Geres.Diagnostics.StorageConnectionString" />
+      <Setting name="Geres.Diagnostics.Level" />
+    </ConfigurationSettings>
+    <Certificates>
+    </Certificates>
+  </WebRole>
+  <WorkerRole name="Geres.Azure.PaaS.AutoScaler" vmsize="Small">
+    <Imports>
+      <Import moduleName="Diagnostics" />
+    </Imports>
+    <ConfigurationSettings>
+      <Setting name="Geres.Storage.ConnectionString" />
+      <Setting name="Geres.AutoScaler.PolicyType" />
+      <Setting name="Geres.Messaging.ServiceBusConnectionString" />
+      <Setting name="Geres.Diagnostics.StorageConnectionString" />
+      <Setting name="Geres.AutoScaler.PolicySamples.MaximumJobHosts" />
+      <Setting name="Geres.AutoScaler.PolicySamples.MinimumRunningJobHosts" />
+      <Setting name="Geres.AutoScaler.PolicySamples.MaximumIdleJobHosts" />
+      <Setting name="Geres.AutoScaler.PolicySamples.IdleTimeInMinutes" />
+      <Setting name="Geres.AutoScaler.IntervalConfigInMinutes" />
+      <Setting name="Geres.AutoScaler.JobHostUpdateCheckIntervalInSeconds" />
+      <Setting name="Geres.Diagnostics.Level" />
+    </ConfigurationSettings>
+  </WorkerRole>
+</ServiceDefinition>

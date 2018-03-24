@@ -1,0 +1,331 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<layerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/SimpleShapesModel" dslVersion="1.0.0.0" Id="f4b3c6bb-efd5-498b-a3ba-34bc05846ff4" xmlns="http://schemas.microsoft.com/VisualStudio/TeamArchitect/LayerDesigner">
+  <comments>
+    <comment Id="70c2c667-a96d-4dd4-aa47-9dce797f6c35" name="Comment1">
+      <body>Some dependencies need to be cleaned up (low priority):
+
+- Hosts --&gt; repositories
+- Auto Scaler interfaces in common interfaces!?
+- Move repository interfaces to interfaces project
+- some parts of hosts could be de-coupled from Azure!?</body>
+    </comment>
+  </comments>
+  <layers>
+    <layer Id="69c4630b-4cf6-4ced-8e3d-b0e8e9154194" name="Cross cutting (shared across clients and servers)">
+      <references>
+        <reference Id="75552bcd-daac-416b-9070-b696b77f7a6b" name="Geres.Common.Entities">
+          <ArtifactNode Label="Geres.Common.Entities" Category="CodeSchema_Project" Id="(Assembly=../Geres.Common.Entities/Geres.Common.Entities.csproj)">
+            <Category Ref="File" />
+          </ArtifactNode>
+          <ExpandedNode Id="(Assembly=Geres.Common.Entities)" Label="Geres.Common.Entities.dll" Category="CodeSchema_Assembly">
+            <Category Ref="FileSystem.Category.FileOfType.dll" />
+            <LinkCategory Ref="Produces" />
+            <LinkCategory Ref="Represents" />
+          </ExpandedNode>
+        </reference>
+      </references>
+    </layer>
+    <layer Id="a7e1dd45-b088-4ae3-9bc2-b8f21fa1c6d2" name="Geres Core Engine">
+      <dependencyToLayers>
+        <dependencyFromLayerToLayer Id="739260c0-6681-44f9-bb33-44c23cc1407e" direction="Forward">
+          <layerMoniker Id="69c4630b-4cf6-4ced-8e3d-b0e8e9154194" />
+        </dependencyFromLayerToLayer>
+      </dependencyToLayers>
+      <childLayers>
+        <layer Id="6a4629cc-3704-454c-b261-b7cdc14c7460" name="Core Engine">
+          <dependencyToLayers>
+            <dependencyFromLayerToLayer Id="296b13f2-b2d3-4800-958f-316633a01c84" direction="Forward">
+              <layerMoniker Id="e45f92a2-e663-435e-883f-4d2e8a63bbaa" />
+            </dependencyFromLayerToLayer>
+            <dependencyFromLayerToLayer Id="1ef041a2-74fe-42ae-adba-09b0c6711560" direction="Forward">
+              <layerMoniker Id="fff6a569-5e70-4b8a-a67c-3e143e6fb061" />
+            </dependencyFromLayerToLayer>
+            <dependencyFromLayerToLayer Id="9cdd04f3-f619-48ff-bf76-42a3908b7f27" direction="Forward">
+              <layerMoniker Id="8b6301f3-b77b-426b-a5cb-3a9a173f4b3a" />
+            </dependencyFromLayerToLayer>
+          </dependencyToLayers>
+          <references>
+            <reference Id="61cb700d-014d-4b81-8d60-c7f6e2a79961" name="Geres.Engine.Common">
+              <ArtifactNode Label="Geres.Engine.Common" Category="CodeSchema_Project" Id="(Assembly=../Geres.Engine.Common/Geres.Engine.Common.csproj)">
+                <Category Ref="File" />
+              </ArtifactNode>
+              <ExpandedNode Id="(Assembly=Geres.Engine.Common)" Label="Geres.Engine.Common.dll" Category="CodeSchema_Assembly">
+                <Category Ref="FileSystem.Category.FileOfType.dll" />
+                <LinkCategory Ref="Produces" />
+                <LinkCategory Ref="Represents" />
+              </ExpandedNode>
+            </reference>
+            <reference Id="ceee47a3-4b64-49db-ba0b-5913fe766090" name="Geres.Engine.BuiltInJobs">
+              <ArtifactNode Label="Geres.Engine.BuiltInJobs" Category="CodeSchema_Project" Id="(Assembly=../Geres.Engine.BuiltInJobs/Geres.Engine.BuiltInJobs.csproj)">
+                <Category Ref="File" />
+              </ArtifactNode>
+              <ExpandedNode Id="(Assembly=Geres.Engine.BuiltInJobs)" Label="Geres.Engine.BuiltInJobs.dll" Category="CodeSchema_Assembly">
+                <Category Ref="FileSystem.Category.FileOfType.dll" />
+                <LinkCategory Ref="Produces" />
+                <LinkCategory Ref="Represents" />
+              </ExpandedNode>
+            </reference>
+            <reference Id="3fee8ddb-f972-47ae-839c-f2d7f1d829af" name="Geres.Engine">
+              <ArtifactNode Label="Geres.Engine" Category="CodeSchema_Project" Id="(Assembly=../Geres.Engine/Geres.Engine.csproj)">
+                <Category Ref="File" />
+              </ArtifactNode>
+              <ExpandedNode Id="(Assembly=Geres.Engine)" Label="Geres.Engine.dll" Category="CodeSchema_Assembly">
+                <Category Ref="FileSystem.Category.FileOfType.dll" />
+                <LinkCategory Ref="Produces" />
+                <LinkCategory Ref="Represents" />
+              </ExpandedNode>
+            </reference>
+          </references>
+        </layer>
+        <layer Id="e45f92a2-e663-435e-883f-4d2e8a63bbaa" name="Server Shared (Interfaces, Util)">
+          <references>
+            <reference Id="77592dce-4ec8-4995-84f6-687129972363" name="Geres.Common">
+              <ArtifactNode Label="Geres.Common" Category="CodeSchema_Project" Id="(Assembly=../Geres.Common/Geres.Common.csproj)">
+                <Category Ref="File" />
+              </ArtifactNode>
+              <ExpandedNode Id="(Assembly=Geres.Common)" Label="Geres.Common.dll" Category="CodeSchema_Assembly">
+                <Category Ref="FileSystem.Category.FileOfType.dll" />
+                <LinkCategory Ref="Produces" />
+                <LinkCategory Ref="Represents" />
+              </ExpandedNode>
+            </reference>
+            <reference Id="a062ca41-3dff-4c84-be3c-13f12bda74f4" name="Geres.AutoScaler.Interfaces">
+              <ArtifactNode Label="Geres.AutoScaler.Interfaces" Category="CodeSchema_Project" Id="(Assembly=../Geres.AutoScaler.Interfaces/Geres.AutoScaler.Interfaces.csproj)">
+                <Category Ref="File" />
+              </ArtifactNode>
+              <ExpandedNode Id="(Assembly=Geres.AutoScaler.Interfaces)" Label="Geres.AutoScaler.Interfaces.dll" Category="CodeSchema_Assembly">
+                <Category Ref="FileSystem.Category.FileOfType.dll" />
+                <LinkCategory Ref="Produces" />
+                <LinkCategory Ref="Represents" />
+              </ExpandedNode>
+            </reference>
+          </references>
+        </layer>
+        <layer Id="7df72e98-2411-4b4e-bec2-bcf316e2864f" name="Azure Auto Scaler">
+          <dependencyToLayers>
+            <dependencyFromLayerToLayer Id="ff5b1711-3b50-4f99-9d97-bbedece3068a" direction="Forward">
+              <layerMoniker Id="e45f92a2-e663-435e-883f-4d2e8a63bbaa" />
+            </dependencyFromLayerToLayer>
+            <dependencyFromLayerToLayer Id="726e78d6-f404-4da7-b014-47fccbf20faa" direction="Forward">
+              <layerMoniker Id="fff6a569-5e70-4b8a-a67c-3e143e6fb061" />
+            </dependencyFromLayerToLayer>
+            <dependencyFromLayerToLayer Id="c8a71cf8-36ad-40c0-8121-d12d64ed9b4e" direction="Forward">
+              <layerMoniker Id="6a4629cc-3704-454c-b261-b7cdc14c7460" />
+            </dependencyFromLayerToLayer>
+            <dependencyFromLayerToLayer Id="9dbe7d9a-213c-4bc9-b1cd-6bddbe7091c4" direction="Forward">
+              <layerMoniker Id="8b6301f3-b77b-426b-a5cb-3a9a173f4b3a" />
+            </dependencyFromLayerToLayer>
+          </dependencyToLayers>
+          <references>
+            <reference Id="c4ed7a08-c82c-4faa-bc6f-7c103a9f18cf" name="Geres.AutoScaler">
+              <ArtifactNode Label="Geres.AutoScaler" Category="CodeSchema_Project" Id="(Assembly=../Geres.AutoScaler/Geres.AutoScaler.csproj)">
+                <Category Ref="File" />
+              </ArtifactNode>
+              <ExpandedNode Id="(Assembly=Geres.AutoScaler)" Label="Geres.AutoScaler.dll" Category="CodeSchema_Assembly">
+                <Category Ref="FileSystem.Category.FileOfType.dll" />
+                <LinkCategory Ref="Produces" />
+                <LinkCategory Ref="Represents" />
+              </ExpandedNode>
+            </reference>
+            <reference Id="11da536a-552a-450f-9d72-d7a43acae738" name="Geres.Azure.PaaS.AutoScaler">
+              <ArtifactNode Label="Geres.Azure.PaaS.AutoScaler" Category="CodeSchema_Project" Id="(Assembly=../AutoScaler/Geres.Azure.PaaS.AutoScaler.csproj)">
+                <Category Ref="File" />
+              </ArtifactNode>
+              <ExpandedNode Id="(Assembly=Geres.Azure.PaaS.AutoScaler)" Label="Geres.Azure.PaaS.AutoScaler.dll" Category="CodeSchema_Assembly">
+                <Category Ref="FileSystem.Category.FileOfType.dll" />
+                <LinkCategory Ref="Produces" />
+                <LinkCategory Ref="Represents" />
+              </ExpandedNode>
+            </reference>
+          </references>
+        </layer>
+        <layer Id="fff6a569-5e70-4b8a-a67c-3e143e6fb061" name="Diagnostics">
+          <references>
+            <reference Id="4645e7c8-fa70-40b8-8625-3af99fcf39e8" name="Geres.Diagnostics">
+              <ArtifactNode Label="Geres.Diagnostics" Category="CodeSchema_Project" Id="(Assembly=../Geres.Diagnostics/Geres.Diagnostics.csproj)">
+                <Category Ref="File" />
+              </ArtifactNode>
+              <ExpandedNode Id="(Assembly=Geres.Diagnostics)" Label="Geres.Diagnostics.dll" Category="CodeSchema_Assembly">
+                <Category Ref="FileSystem.Category.FileOfType.dll" />
+                <LinkCategory Ref="Produces" />
+                <LinkCategory Ref="Represents" />
+              </ExpandedNode>
+            </reference>
+          </references>
+        </layer>
+        <layer Id="8b6301f3-b77b-426b-a5cb-3a9a173f4b3a" name="Repositories">
+          <dependencyToLayers>
+            <dependencyFromLayerToLayer Id="816ab40e-6fc4-471d-bc11-0abb2351f6bc" direction="Forward">
+              <layerMoniker Id="e45f92a2-e663-435e-883f-4d2e8a63bbaa" />
+            </dependencyFromLayerToLayer>
+            <dependencyFromLayerToLayer Id="7ebedd23-1dbf-4edb-839a-37a8b87693a9" direction="Forward">
+              <layerMoniker Id="fff6a569-5e70-4b8a-a67c-3e143e6fb061" />
+            </dependencyFromLayerToLayer>
+          </dependencyToLayers>
+          <references>
+            <reference Id="2b7f73fd-0017-47f1-b700-c99174ab3813" name="Geres.Repositories">
+              <ArtifactNode Label="Geres.Repositories" Category="CodeSchema_Project" Id="(Assembly=../Geres.Repositories/Geres.Repositories.csproj)">
+                <Category Ref="File" />
+              </ArtifactNode>
+              <ExpandedNode Id="(Assembly=Geres.Repositories)" Label="Geres.Repositories.dll" Category="CodeSchema_Assembly">
+                <Category Ref="FileSystem.Category.FileOfType.dll" />
+                <LinkCategory Ref="Produces" />
+                <LinkCategory Ref="Represents" />
+              </ExpandedNode>
+            </reference>
+          </references>
+        </layer>
+        <layer Id="b64516bf-9397-4c38-ac19-dfbeed8ed9aa" name="Engine Hosts">
+          <dependencyToLayers>
+            <dependencyFromLayerToLayer Id="94379c6f-24b3-469a-a59e-2dc24ef4ed4a" direction="Forward">
+              <layerMoniker Id="6a4629cc-3704-454c-b261-b7cdc14c7460" />
+            </dependencyFromLayerToLayer>
+            <dependencyFromLayerToLayer Id="bc74d087-7d7a-4f23-a1fa-dc78dc2a2159" direction="Forward">
+              <layerMoniker Id="e45f92a2-e663-435e-883f-4d2e8a63bbaa" />
+            </dependencyFromLayerToLayer>
+            <dependencyFromLayerToLayer Id="df9f2729-fba5-4337-b3a0-ac44c496142b" direction="Forward">
+              <layerMoniker Id="fff6a569-5e70-4b8a-a67c-3e143e6fb061" />
+            </dependencyFromLayerToLayer>
+            <dependencyFromLayerToLayer Id="c938140f-472a-44d1-85bb-94a46d9fef06" direction="Forward">
+              <layerMoniker Id="8b6301f3-b77b-426b-a5cb-3a9a173f4b3a" />
+            </dependencyFromLayerToLayer>
+          </dependencyToLayers>
+          <references>
+            <reference Id="344032b9-3333-4e82-ba47-e6e3d49ef23c" name="Geres.Azure.PaaS.JobProcessor">
+              <ArtifactNode Label="Geres.Azure.PaaS.JobProcessor" Category="CodeSchema_Project" Id="(Assembly=../JobProcessor/Geres.Azure.PaaS.JobProcessor.csproj)">
+                <Category Ref="File" />
+              </ArtifactNode>
+              <ExpandedNode Id="(Assembly=Geres.Azure.PaaS.JobProcessor)" Label="Geres.Azure.PaaS.JobProcessor.dll" Category="CodeSchema_Assembly">
+                <Category Ref="FileSystem.Category.FileOfType.dll" />
+                <LinkCategory Ref="Produces" />
+                <LinkCategory Ref="Represents" />
+              </ExpandedNode>
+            </reference>
+            <reference Id="c04305e7-5c0c-45e4-8a18-b485b443e39b" name="Geres.Azure.PaaS.JobHub">
+              <ArtifactNode Label="Geres.Azure.PaaS.JobHub" Category="CodeSchema_Project" Id="(Assembly=../JobHub/Geres.Azure.PaaS.JobHub.csproj)">
+                <Category Ref="File" />
+              </ArtifactNode>
+              <ExpandedNode Id="(Assembly=Geres.Azure.PaaS.JobHub)" Label="Geres.Azure.PaaS.JobHub.dll" Category="CodeSchema_Assembly">
+                <Category Ref="FileSystem.Category.FileOfType.dll" />
+                <LinkCategory Ref="Produces" />
+                <LinkCategory Ref="Represents" />
+              </ExpandedNode>
+            </reference>
+          </references>
+        </layer>
+      </childLayers>
+    </layer>
+    <layer Id="d66787df-58b6-4e8d-9e4a-c452e610f59b" name="Customer Job Implementations">
+      <dependencyToLayers>
+        <dependencyFromLayerToLayer Id="0a2d2dff-b708-4ff8-ac3e-631ffd539da4" direction="Forward">
+          <layerMoniker Id="69c4630b-4cf6-4ced-8e3d-b0e8e9154194" />
+        </dependencyFromLayerToLayer>
+        <dependencyFromLayerToLayer Id="faf67135-ac9f-49ed-b4a8-8d2a9bc5a17b" direction="Forward">
+          <layerMoniker Id="e45f92a2-e663-435e-883f-4d2e8a63bbaa" />
+        </dependencyFromLayerToLayer>
+      </dependencyToLayers>
+      <references>
+        <reference Id="fa65da0c-2356-42f2-afd5-31a1a3de2f5e" name="GeresJobSamples">
+          <ArtifactNode Label="GeresJobSamples" Category="CodeSchema_Project" Id="(Assembly=../Samples/GeresSimpleJobSamples/GeresJobSamples.csproj)">
+            <Category Ref="File" />
+          </ArtifactNode>
+          <ExpandedNode Id="(Assembly=GeresSimpleJobSamples)" Label="GeresSimpleJobSamples.dll" Category="CodeSchema_Assembly">
+            <Category Ref="FileSystem.Category.FileOfType.dll" />
+            <LinkCategory Ref="Produces" />
+            <LinkCategory Ref="Represents" />
+          </ExpandedNode>
+        </reference>
+        <reference Id="5ae25b80-4685-4271-94f1-20395107f455" name="Geres.Samples.ThumbnailGeneratorJob">
+          <ArtifactNode Label="Geres.Samples.ThumbnailGeneratorJob" Category="CodeSchema_Project" Id="(Assembly=../Samples/End2End/Geres.Samples.ThumbnailGeneratorJob/Geres.Samples.ThumbnailGeneratorJob.csproj)">
+            <Category Ref="File" />
+          </ArtifactNode>
+          <ExpandedNode Id="(Assembly=Geres.Samples.ThumbnailGeneratorJob)" Label="Geres.Samples.ThumbnailGeneratorJob.dll" Category="CodeSchema_Assembly">
+            <Category Ref="FileSystem.Category.FileOfType.dll" />
+            <LinkCategory Ref="Produces" />
+            <LinkCategory Ref="Represents" />
+          </ExpandedNode>
+        </reference>
+      </references>
+    </layer>
+    <layer Id="bde76a96-f08d-42a8-8496-c9fc4f622db7" name="Consumers / Clients">
+      <dependencyToLayers>
+        <dependencyFromLayerToLayer Id="bd731f0d-3415-45a0-b12d-e8ea7f927840" direction="Forward">
+          <layerMoniker Id="69c4630b-4cf6-4ced-8e3d-b0e8e9154194" />
+        </dependencyFromLayerToLayer>
+        <dependencyFromLayerToLayer Id="28b263a8-1974-414d-b2b6-8cdb5abd68bd" direction="Forward">
+          <layerMoniker Id="384b9e3e-1c0c-4156-8df9-9e8d76738344" />
+        </dependencyFromLayerToLayer>
+      </dependencyToLayers>
+      <references>
+        <reference Id="41b490d0-a343-40dd-b699-3be053976358" name="Geres.Samples.ThumbnailGeneratorClient">
+          <ArtifactNode Label="Geres.Samples.ThumbnailGeneratorClient" Category="CodeSchema_Project" Id="(Assembly=../Samples/End2End/Geres.Samples.ThumbnailGeneratorClient/Geres.Samples.ThumbnailGeneratorClient.csproj)">
+            <Category Ref="File" />
+          </ArtifactNode>
+          <ExpandedNode Id="(Assembly=Geres.Samples.ThumbnailGeneratorClient)" Label="Geres.Samples.ThumbnailGeneratorClient.exe" Category="CodeSchema_Assembly">
+            <Category Ref="FileSystem.Category.FileOfType.exe" />
+            <LinkCategory Ref="Produces" />
+            <LinkCategory Ref="Represents" />
+          </ExpandedNode>
+        </reference>
+        <reference Id="53ee31e2-41bb-4f10-96aa-95ec8d26bc48" name="GeresJobRequestorSampleConsole">
+          <ArtifactNode Label="GeresJobRequestorSampleConsole" Category="CodeSchema_Project" Id="(Assembly=../Samples/GeresJobRequestorSampleConsole/GeresJobRequestorSampleConsole.csproj)">
+            <Category Ref="File" />
+          </ArtifactNode>
+          <ExpandedNode Id="(Assembly=GeresJobRequestorSampleConsole)" Label="GeresJobRequestorSampleConsole.exe" Category="CodeSchema_Assembly">
+            <Category Ref="FileSystem.Category.FileOfType.exe" />
+            <LinkCategory Ref="Produces" />
+            <LinkCategory Ref="Represents" />
+          </ExpandedNode>
+        </reference>
+      </references>
+    </layer>
+    <layer Id="384b9e3e-1c0c-4156-8df9-9e8d76738344" name="Client SDK">
+      <dependencyToLayers>
+        <dependencyFromLayerToLayer Id="00e7a4ee-76a8-4408-91ab-effde0ad1885" direction="Forward">
+          <layerMoniker Id="69c4630b-4cf6-4ced-8e3d-b0e8e9154194" />
+        </dependencyFromLayerToLayer>
+      </dependencyToLayers>
+      <references>
+        <reference Id="c1a39a8f-7445-47df-b6a3-10684deaa5d6" name="Geres.ClientSdk.NetFx">
+          <ArtifactNode Label="Geres.ClientSdk.NetFx" Category="CodeSchema_Project" Id="(Assembly=../Geres.ClientSdk.NetFx/Geres.ClientSdk.NetFx.csproj)">
+            <Category Ref="File" />
+          </ArtifactNode>
+          <ExpandedNode Id="(Assembly=Geres.ClientSdk.NetFx)" Label="Geres.ClientSdk.NetFx.dll" Category="CodeSchema_Assembly">
+            <Category Ref="FileSystem.Category.FileOfType.dll" />
+            <LinkCategory Ref="Produces" />
+            <LinkCategory Ref="Represents" />
+          </ExpandedNode>
+        </reference>
+        <reference Id="779449e9-f9f8-4714-9cd7-76e5ff0828c1" name="Geres.ClientSdk.Core">
+          <ArtifactNode Label="Geres.ClientSdk.Core" Category="CodeSchema_Project" Id="(Assembly=../Geres.ClientSdk.Core/Geres.ClientSdk.Core.csproj)">
+            <Category Ref="File" />
+          </ArtifactNode>
+          <ExpandedNode Id="(Assembly=Geres.ClientSdk.Core)" Label="Geres.ClientSdk.Core.dll" Category="CodeSchema_Assembly">
+            <Category Ref="FileSystem.Category.FileOfType.dll" />
+            <LinkCategory Ref="Produces" />
+            <LinkCategory Ref="Represents" />
+          </ExpandedNode>
+        </reference>
+      </references>
+    </layer>
+    <layer Id="366f95e5-9d6e-424d-a6d7-c7eda674f8bf" name="Cutomer AutoScaler Policies">
+      <dependencyToLayers>
+        <dependencyFromLayerToLayer Id="45f72e1f-93ae-42ac-a396-a030a5b9554c" direction="Forward">
+          <layerMoniker Id="e45f92a2-e663-435e-883f-4d2e8a63bbaa" />
+        </dependencyFromLayerToLayer>
+      </dependencyToLayers>
+      <references>
+        <reference Id="4ac391ce-aefe-41ef-98d6-4ff30a56994f" name="GeresAutoscalerPolicySamples">
+          <ArtifactNode Label="GeresAutoscalerPolicySamples" Category="CodeSchema_Project" Id="(Assembly=../Samples/GeresAutoscalePolicySamples/GeresAutoscalerPolicySamples.csproj)">
+            <Category Ref="File" />
+          </ArtifactNode>
+          <ExpandedNode Id="(Assembly=GeresAutoscalerPolicySamples)" Label="GeresAutoscalerPolicySamples.dll" Category="CodeSchema_Assembly">
+            <Category Ref="FileSystem.Category.FileOfType.dll" />
+            <LinkCategory Ref="Produces" />
+            <LinkCategory Ref="Represents" />
+          </ExpandedNode>
+        </reference>
+      </references>
+    </layer>
+  </layers>
+</layerModel>

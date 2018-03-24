@@ -1,0 +1,23 @@
+<div class="wikidoc">
+<h3>Configuring Service Bus for GeRes2</h3>
+<p>Setting up Azure Service Bus for GeRes2 is fairly easy since you just need to create a Service Bus namespace and then change the configuration settings for your GeRes2 deployment.</p>
+<ol>
+<li>Open the <a href="http://manage.windowsazure.com/">Microsoft Azure Management</a> portal for creating a Service Bus namespace.
+</li><li>After signed in to the Azure Management portal, navigate to the Service Bus section in the left pane.<br>
+<a href="http://download-codeplex.sec.s-msft.com/Download?ProjectName=geres2&DownloadId=833527"><img title="image" src="https://www.codeplex.com/Download?ProjectName=geres2&DownloadId=833527" alt="image" width="541" height="295" border="0" style="padding-top:0px; padding-left:0px; display:inline; padding-right:0px; border:0px"></a>
+</li><li>Next select the &ldquo;Create&rdquo;-button in the lower center bar of the portal (<strong><em>not</em></strong> the &ldquo;New&rdquo;-button) to create a new Service Bus namespace, only. We only need to create a namespace since all the topics and subscriptions
+ are created by GeRes2, automatically.<br>
+<a href="http://download-codeplex.sec.s-msft.com/Download?ProjectName=geres2&DownloadId=833529"><img title="image" src="https://www.codeplex.com/Download?ProjectName=geres2&DownloadId=833529" alt="image" width="548" height="299" border="0" style="padding-top:0px; padding-left:0px; display:inline; padding-right:0px; border:0px"></a>&nbsp;
+</li><li>After created successfully, select the new namespace in the list of namespaces as shown below and click on the &ldquo;Connection Information&rdquo; button in the center, lower toolbar of the portal. Copy the Service Bus connection string from the dialog
+ popping up since it is the one you need for GeRes2.<br>
+<a href="http://download-codeplex.sec.s-msft.com/Download?ProjectName=geres2&DownloadId=833531"><img title="image" src="https://www.codeplex.com/Download?ProjectName=geres2&DownloadId=833531" alt="image" width="551" height="300" border="0" style="padding-top:0px; padding-left:0px; display:inline; padding-right:0px; border:0px"></a>
+</li><li>Next you need to adjust the service configuration of the GeRes2 backend. For this purpose, in the GeRes2-solution open the appropriate service configuration file (*.cscfg, by default the solution includes a *.cscfg for local debugging called ServiceConfiguration.Local.cscfg
+ which you can use to use this service bus namespace for local debugging). </li><li>Update the service bus configuration settings of all roles in the *.cscfg file. For each role you&rsquo;ll find a setting called &ldquo;Geres.Messaging.ServiceBusConnectionString&rdquo; into which you need to paste the connection string you copied earlier
+ in step 4. A sample-excerpt is shown below:<br>
+<a href="http://download-codeplex.sec.s-msft.com/Download?ProjectName=geres2&DownloadId=833533"><img title="image" src="https://www.codeplex.com/Download?ProjectName=geres2&DownloadId=833533" alt="image" width="559" height="305" border="0" style="padding-top:0px; padding-left:0px; display:inline; padding-right:0px; border:0px"></a><br>
+You&rsquo;ll need to change the Service Bus connection string three times, one time for each role-configuration as highlighted in the screen shot above.
+</li></ol>
+<p>That&rsquo;s it, after you&rsquo;ve configured Service Bus you need to configure Azure Active Directory and Storage if you haven&rsquo;t done this before. For further details on these two other topics please look at:</p>
+<p><a title="Configuring Storage for GeRes2" href="https://geres2.codeplex.com/wikipage?title=Configuring%20Storage%20for%20GeRes2">Configuring Storage for GeRes2</a></p>
+<p><a href="https://geres2.codeplex.com/wikipage?title=Configuring%20Azure%20Active%20Directory%20for%20GeRes2">Configuring Azure Active Directory for GeRes2</a></p>
+</div><div class="ClearBoth"></div>

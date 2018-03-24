@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ServiceConfiguration serviceName="AzureTrafficManagerApp.Azure" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceConfiguration" osFamily="3" osVersion="*" schemaVersion="2013-03.2.0">
+  <Role name="AzureTrafficManagerApp">
+    <Instances count="1" />
+    <ConfigurationSettings>
+      <Setting name="StorageConnectionStringSetting" value="UseDevelopmentStorage=true" />
+      <Setting name="BackgroundColorSetting" value="white" />
+      <Setting name="LocationNameSetting" value="Development Fabric" />
+    </ConfigurationSettings>
+  </Role>
+</ServiceConfiguration>

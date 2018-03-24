@@ -1,0 +1,97 @@
+<div class="wikidoc">
+<h3>Configuring Azure Active Directory for GeRes2</h3>
+<p>Setting-up Azure Active Directory is fairly easy, as well, although it involves a bit more steps as compared to setting up Storage and Service Bus for GeRes2. Before getting into the details of the setup, please note
+<strong>that you can easily change how you secure GeRes2, since the JobHub WebAPI and SignalR pieces are based ASP.NET OWIN and do not involve any special or custom implementations.</strong></p>
+<p>That said, if you want to authenticate against a different OAuth provider or use a completely different mechanism, change the
+<font face="Consolas">Startup\ConfigAuth.cs</font> code file in the project <font face="Consolas">
+GeRes.Azure.PaaS.JobHub</font> project.</p>
+<p>To stick with Azure Active Directory for Authentication, you need to setup the GeRes JobHub as a registered application and have at least one application that represents your client applications as part of the Azure Active Directory configuration. Perform
+ the following steps to completely configure authentication and basic authorization (unfortunately at the time of writing this documentation, not all operations where possible to be completed through the management portal):</p>
+<ol>
+<li>Sign in into the <a href="http://manage.windowsazure.com/">Microsoft Azure Management portal</a>Microsoft Azure Management portal and navigate to the &ldquo;Active Directory&rdquo; section.<br>
+<a href="http://download-codeplex.sec.s-msft.com/Download?ProjectName=geres2&DownloadId=833660"><img title="image" src="https://www.codeplex.com/Download?ProjectName=geres2&DownloadId=833660" alt="image" width="495" height="270" border="0" style="padding-top:0px; padding-left:0px; display:inline; padding-right:0px; border:0px"></a>
+</li><li>Create a new directory if you don&rsquo;t have one or don&rsquo;t want to use your existing directory. Since the authentication into the Azure management portal is implemented with Azure AD, as well, every subscription should have a directory. For your
+ dev/test purposes you can use that one, for customer projects you should consider creating separate directories or directory tenants as per the Azure AD documentation.
+</li><li>Open up the directory in which you want to manage the GeRes2 security and authorization and navigate to the &ldquo;Applications&rdquo; tab inside of the directory management portal as shown below.<br>
+<a href="http://download-codeplex.sec.s-msft.com/Download?ProjectName=geres2&DownloadId=833662"><img title="image" src="https://www.codeplex.com/Download?ProjectName=geres2&DownloadId=833662" alt="image" width="506" height="276" border="0" style="padding-top:0px; padding-left:0px; display:inline; padding-right:0px; border:0px"></a>
+</li><li>Create a new application for the GeRes2 JobHub. You can freely select names and URIs as per your naming conventions. The choices for those below made as part of this documentation are just examples.
+<ol>
+<li>Click the &ldquo;Add&rdquo;-button in the bottom-command line of the directory.
+</li><li>Then select &ldquo;Add an application my organization is developing&rdquo; in the popup.<br>
+<a href="http://download-codeplex.sec.s-msft.com/Download?ProjectName=geres2&DownloadId=833664"><img title="image" src="https://www.codeplex.com/Download?ProjectName=geres2&DownloadId=833664" alt="image" width="459" height="250" border="0" style="padding-top:0px; padding-left:0px; display:inline; padding-right:0px; border:0px"></a>
+</li><li>Pick any name you want for that application, e.g. GeRes2 Job Hub. Especially select the option &ldquo;Web Application and/or Web API&rdquo; from the options below.<br>
+<a href="http://download-codeplex.sec.s-msft.com/Download?ProjectName=geres2&DownloadId=833666"><img title="image" src="https://www.codeplex.com/Download?ProjectName=geres2&DownloadId=833666" alt="image" width="466" height="254" border="0" style="padding-top:0px; padding-left:0px; display:inline; padding-right:0px; border:0px"></a>
+</li><li>Specify a sign-on URL and an App ID URI. The sign-on URL is not relevant since we don&rsquo;t do interactive browser logins in GeRes2. The App ID URI is relevant and can be any valid URI (it does not need to be a physical URL!!). Copy this App ID URI for
+ later reference since we need to update the GeRes2 configuration and the client configuration with it!<br>
+<a href="http://download-codeplex.sec.s-msft.com/Download?ProjectName=geres2&DownloadId=833668"><img title="image" src="https://www.codeplex.com/Download?ProjectName=geres2&DownloadId=833668" alt="image" width="470" height="256" border="0" style="padding-top:0px; padding-left:0px; display:inline; padding-right:0px; border:0px"></a>
+</li></ol>
+</li><li>Create a new application that represents valid client applications for the GeRes2 JobHub. Note: you don&rsquo;t need to create new applications in Azure AD for each consuming client if you just re-use the secret key configured as part of this configuration
+ across multiple client applications. For different customers, of course, you should create client applications for each so that every customer gets a different client ID and secret for authenticating against the GeRes2 JobHub.
+<ol>
+<li>Again, click the &ldquo;Add&rdquo;-button in the bottom-command line of the directory.
+</li><li>Again, select &ldquo;Add an application my organization is developing&rdquo; in the popup.<br>
+<a href="http://download-codeplex.sec.s-msft.com/Download?ProjectName=geres2&DownloadId=833670"><img title="image" src="https://www.codeplex.com/Download?ProjectName=geres2&DownloadId=833670" alt="image" width="459" height="250" border="0" style="padding-top:0px; padding-left:0px; margin:0px; display:inline; padding-right:0px; border:0px"></a>
+</li><li>Now select an appropriate name for the permitted client application (or group of client applications). Also let the type of the application be a &ldquo;Web Application and/or Web API&rdquo; since we use service credentials instead of end-user credentials
+ for authentication.<br>
+<a href="http://download-codeplex.sec.s-msft.com/Download?ProjectName=geres2&DownloadId=833672"><img title="image" src="https://www.codeplex.com/Download?ProjectName=geres2&DownloadId=833672" alt="image" width="463" height="253" border="0" style="padding-top:0px; padding-left:0px; display:inline; padding-right:0px; border:0px"></a>
+</li><li>In the next step, for Sign-On URL and APP ID URI select any valid URI. These settings are not relevant except for this context and won&rsquo;t be used by GeRes2. Of course if you want to make use of them otherwise, configure them appropriately.
+</li><li>After the application entry has been created in Azure AD, navigate to the &ldquo;Configure&rdquo;-tab as shown below:<br>
+<a href="http://download-codeplex.sec.s-msft.com/Download?ProjectName=geres2&DownloadId=833674"><img title="image" src="https://www.codeplex.com/Download?ProjectName=geres2&DownloadId=833674" alt="image" width="464" height="253" border="0" style="padding-top:0px; padding-left:0px; display:inline; padding-right:0px; border:0px"></a>
+</li><li>Scroll down until you see the settings for &ldquo;CLIENT ID&rdquo; and a section named &ldquo;keys&rdquo;.
+<br>
+<a href="http://download-codeplex.sec.s-msft.com/Download?ProjectName=geres2&DownloadId=833676"><img title="image" src="https://www.codeplex.com/Download?ProjectName=geres2&DownloadId=833676" alt="image" width="475" height="259" border="0" style="padding-top:0px; padding-left:0px; display:inline; padding-right:0px; border:0px"></a>
+</li><li>Copy the ClientID since you need it in your GeRes2 client application (e.g. the GeresJobRequestorSampleConsole sample project included in the GeRes2 solution).
+</li><li>Next you need to create a secret key used for the authentication of clients represented by this entry in Azure AD. For this purpose, in the keys selection select a duration in the drop-down list and then hit save in the bottom toolbar of the portal. This
+ generates a secret key which can be used by clients together with the client id you copied as part of step 7 for authentication. In other words &ndash; it is a valid service credential.<br>
+<a href="http://download-codeplex.sec.s-msft.com/Download?ProjectName=geres2&DownloadId=833678"><img title="image" src="https://www.codeplex.com/Download?ProjectName=geres2&DownloadId=833678" alt="image" width="492" height="268" border="0" style="padding-top:0px; padding-left:0px; display:inline; padding-right:0px; border:0px"></a><br>
+<a href="http://download-codeplex.sec.s-msft.com/Download?ProjectName=geres2&DownloadId=833680"><img title="image" src="https://www.codeplex.com/Download?ProjectName=geres2&DownloadId=833680" alt="image" width="493" height="269" border="0" style="padding-top:0px; padding-left:0px; display:inline; padding-right:0px; border:0px"></a><br>
+<a href="http://download-codeplex.sec.s-msft.com/Download?ProjectName=geres2&DownloadId=833682"><img title="image" src="https://www.codeplex.com/Download?ProjectName=geres2&DownloadId=833682" alt="image" width="493" height="269" border="0" style="padding-top:0px; padding-left:0px; display:inline; padding-right:0px; border:0px"></a><br>
+<strong>Note:</strong> copy the secret key immediately since you won&rsquo;t be able to retrieve it anymore after the first page refresh in the Azure management portal.
+</li></ol>
+</li><li>Now that you have configured applications for both, the GeRes2 JobHub and client applications using a specific Client ID and secret key with the previous two steps, you need to add a permission that allows the applications with a specific Client ID to call
+ the GeRes2 JobHub. Unfortunately the Azure Management portal did not offer a way to configure these permissions at the time when this documentation was created. Therefore you need to configure the permission either programmatically through the
+<a href="http://msdn.microsoft.com/en-us/library/hh974476.aspx">Azure AD Graph API</a> or use a free sample-tool available from Microsoft called the
+<a href="https://graphexplorer.cloudapp.net/">Graph Explorer</a>. We use the Graph Explorer as part of this tutorial.
+<ol>
+<li><strong><font color="#ff0000">Important:</font></strong> for the graph explorer to work best, start with creating a new user in the User&rsquo;s section of your Azure Active Directory which is a Global Administrator!! Use this Global Administrator user
+ to sign-in into the Graph Explorer! </li><li>Navigate to <a title="https://graphexplorer.cloudapp.net/" href="https://graphexplorer.cloudapp.net/">
+https://graphexplorer.cloudapp.net/</a> and sign-in using the button on the top right with a global administrator user of the Azure AD (see step 1 above).<br>
+<a href="http://download-codeplex.sec.s-msft.com/Download?ProjectName=geres2&DownloadId=833684"><img title="image" src="https://www.codeplex.com/Download?ProjectName=geres2&DownloadId=833684" alt="image" width="503" height="274" border="0" style="padding-top:0px; padding-left:0px; display:inline; padding-right:0px; border:0px"></a>
+</li><li>Next click the &ldquo;Add Application Permission&rdquo; link in the top right section of the Graph Explorer. This will open up a UI that allows you to add a permission for the application created in step 5 above to call the GeRes JobHub application created
+ in step 4 above.<br>
+<a href="http://download-codeplex.sec.s-msft.com/Download?ProjectName=geres2&DownloadId=833686"><img title="image" src="https://www.codeplex.com/Download?ProjectName=geres2&DownloadId=833686" alt="image" width="506" height="276" border="0" style="padding-top:0px; padding-left:0px; display:inline; padding-right:0px; border:0px"></a><br>
+After clicking &ldquo;Create Permission&rdquo; the following screen will be displayed. The client id displayed there is exactly the same as the one in the Azure Management portal before.
+<strong>Note:</strong> don&rsquo;t get distracted if the Credential Key field says, that no key has been generated. This is because existing key cannot be retrieved either and we will make use of the key generated before in step 5.8 earlier.<br>
+<a href="http://download-codeplex.sec.s-msft.com/Download?ProjectName=geres2&DownloadId=833688"><img title="image" src="https://www.codeplex.com/Download?ProjectName=geres2&DownloadId=833688" alt="image" width="506" height="276" border="0" style="padding-top:0px; padding-left:0px; display:inline; padding-right:0px; border:0px"></a>
+</li></ol>
+</li><li>As a next step we will need to update the GeRes2 Service Configuration. Open the appropriate *.cscfg configuration file (by default we only ship with
+<font face="Consolas">ServiceConfiguration.Local.cscfg</font> for local debugging &ndash; but you need to configure the Azure AD settings there as well). There are two settings for the web role Geres.Azure.PaaS.JobHub which you need to update:
+<ol>
+<li><font face="Consolas">Geres.Security.AzureAdTenant<br>
+</font>to match you Azure Active Directory tenant (<font face="Consolas">&lt;yourtenantname&gt;.onmicrosoft.com</font>)
+</li><li><font face="Consolas">Geres.Security.AzureAdAudienceUri</font><br>
+to match the APP ID URI you have configured in Azure AD for the GeRes Job hub application in step 4.<br>
+<a href="http://download-codeplex.sec.s-msft.com/Download?ProjectName=geres2&DownloadId=833850"><img title="image" src="https://www.codeplex.com/Download?ProjectName=geres2&DownloadId=833850" alt="image" width="513" height="280" border="0" style="padding-top:0px; padding-left:0px; display:inline; padding-right:0px; border:0px"></a>
+</li></ol>
+</li><li>(optional) Finally if you want to test or debug your GeRes2 deployment using the included GeresJobRequestorSampleConsole, you need to configure the Azure AD tenant as well as the client ID and client secret there. The GeRes2 client SDK uses the Active Directory
+ Authentication Library NuGet package to then authenticate against Azure AD using the client ID and the secret key as defined per steps 5.7 and 5.8 earlier.
+<ol>
+<li>Open the app.config file in the project GeresJobRequestorSampleConsole of the GeRes2 solution.
+</li><li>In the &lt;appSettings&gt; configuration section, update the following settings:<br>
+<a href="http://download-codeplex.sec.s-msft.com/Download?ProjectName=geres2&DownloadId=833852"><img title="image" src="https://www.codeplex.com/Download?ProjectName=geres2&DownloadId=833852" alt="image" width="526" height="287" border="0" style="padding-top:0px; padding-left:0px; display:inline; padding-right:0px; border:0px"></a>
+</li><li>WindowsAzureADTenant &ndash; replace the substring &ldquo;yourgeresadtenant&rdquo; with the name of your Azure AD tenant.
+</li><li>ClientId &ndash; replace the value with the client ID copied in step 5.7 earlier.
+</li><li>ClientSecret &ndash; replace the value with the secret key generated and copied in step 5.8 earlier.
+</li><li>WindowsAzureAdGeresWebApiId &ndash; replace the value with the APP ID URI selected in step 4.4 earlier.
+</li></ol>
+</li></ol>
+<p>Note: the client id and the client secret are used in&nbsp; the <font face="Consolas">
+GeresJobRequestorSampleConsole</font> to authenticate against Azure AD using the GeRes2 client SDK libraries included in the folder
+<font face="Consolas">sdkclient</font> of the <font face="Consolas">GeRes2.sln</font> solution. The project GeRes.ClientSdk.Core is a portable library which contains the base class implementation for all possible client libraries including .NET, Windows 8 and
+ Windows Phone 8.</p>
+<p>As part of this release we included a client SDK for full-fledged .NET applications, only, since that was the primary requirements of the partners we&rsquo;ve been working with on this project. This is encapsulated in the
+<font face="Consolas">Geres.ClientSdk.NetFx</font> project. In future releases we might add an additional client SDK libraries such as one for Windows 8 store apps or Windows Phone apps, for example.</p>
+<p>After you have configured Azure AD for GeRes2 and updated the configuration files appropriately, you should configure Service Bus and Storage for GeRes2 if you have not done so, yet. For further reference look at:</p>
+<p><a href="https://geres2.codeplex.com/wikipage?title=Configuring%20Storage%20for%20GeRes2">Configuring Storage for GeRes2</a></p>
+<p><a href="https://geres2.codeplex.com/wikipage?title=Configuring%20Service%20Bus%20for%20GeRes2">Configuring Service Bus for Geres2</a></p>
+</div><div class="ClearBoth"></div>

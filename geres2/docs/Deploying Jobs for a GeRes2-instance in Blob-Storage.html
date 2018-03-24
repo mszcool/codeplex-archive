@@ -1,0 +1,74 @@
+<div class="wikidoc">
+<h3>Deploying Jobs for a GeRes2-instance in Blob-Storage</h3>
+<p>As explained on the landing page for the GeRes2-project, when executing jobs in the JobProcessor, GeRes2 is downloading the binaries and files required for executing a job from blob storage.</p>
+<p><strong>Which storage account is used?</strong></p>
+<p>As per the documentation page &ldquo;Configuring Storage for GeRes&rdquo; in this Wiki, the primary storage Account for GeRes2 must be used for this purpose (as opposed to the diagnostics storage account). This storage account is configured in the
+<font face="Consolas">Geres.Storage.ConnectionString</font> setting in the GeRes2 service configuration file (*.cscfg).</p>
+<p><strong>Where is GeRes2 looking for Job-packages inside of this storage account?</strong></p>
+<p>In this blob storage service, GeRes2 looks for a <font face="Consolas">jobprocessorfiles</font> container. This container is supposed to have sub-folders in it for each tenant as a very basic means of isolating job implementation packages from different
+ tenants/customers.</p>
+<p>In each of the directories inside of this container, you can have as many ZIP-packages with files required for job-execution as you want. The contents of those ZIP-packages are:</p>
+<ul>
+<li>A .NET assembly DLL containing your IJobImplementation that does the work. This assembly MUST be in the very root directory of the ZIP-archive.
+</li><li>Any additional files, resources and folders required by your job. </li></ul>
+<p><strong>Deploying jobs for GeRes2</strong></p>
+<p>The best way to learn, how you can deploy jobs for GeRes2 is, to deploy one of the sample jobs we&rsquo;re shipping as part of the GeRes2 solution. We recommend you use tool such as
+<a href="http://www.cloudberrylab.com/free-microsoft-azure-explorer.aspx">CloudBerryLabs storage explorer</a> (available for free) if you want to manually deploy jobs. In future releases we&rsquo;re thinking about a command line tool that helps with this (and
+ some other) operations.</p>
+<p>After a full re-build of the GeRes2 solution, you&rsquo;ll find the files and binaries required for those sample jobs in the deploy sub-directory as shown below.<br>
+<br>
+<a href="http://download-codeplex.sec.s-msft.com/Download?ProjectName=geres2&DownloadId=834126"><img title="image" src="https://www.codeplex.com/Download?ProjectName=geres2&DownloadId=834126" alt="image" width="500" height="333" border="0" style="padding-top:0px; padding-left:0px; display:inline; padding-right:0px; border:0px"></a></p>
+<p>Inside of this directory you find a sub-directory called jobs which contains two subfolders representing two different tenants to be created in blob storage. For example in the .\deploy\jobs\SampleTenant folder, you&rsquo;ll find a folder called GeresJobSamples
+ which contains an assembly with two sample jobs (FinancialYearEnd and UpdateWaitingPostings, both are in the assembly GeresSimpleJobSamples.dll).</p>
+<p><a href="http://download-codeplex.sec.s-msft.com/Download?ProjectName=geres2&DownloadId=834128"><img title="image" src="https://www.codeplex.com/Download?ProjectName=geres2&DownloadId=834128" alt="image" width="503" height="335" border="0" style="padding-top:0px; padding-left:0px; display:inline; padding-right:0px; border:0px"></a></p>
+<p>The contents of this directory need to be packaged into a ZIP archive.The name of that ZIP-archive needs to match the value of the JobProcessorPackageName when scheduling a job. For example, the GeresJobRequestorSampleConsole application we ship with the
+ GeRes2 solution uses the following code to schedule jobs included in the assembly shown and mentioned above:</p>
+<pre class="csharpcode"><span class="rem">// create a new job</span>
+var newJob = <span class="kwrd">new</span> Job
+{
+    JobType = jobType,
+    JobName = <span class="kwrd">string</span>.Format(<span class="str">&quot;{0} {1}&quot;</span>, jobType, i),
+    <font style="background-color:#ffc000">TenantName = tenantId,</font>
+    <font style="background-color:#ffff00">JobProcessorPackageName = <span class="str">&quot;geresjobsamples.zip&quot;</span></font>,
+    Parameters = String.Empty
+};
+
+<span class="kwrd">try</span>
+{
+    <span class="kwrd">string</span> jobId = geresServiceClient.Management.SubmitJob(newJob, batchId).Result;
+    <span class="kwrd">try</span>
+    {
+        geresServiceClient.Notifications.SubscribeToJob(jobId);
+    }
+    <span class="kwrd">catch</span> (Exception ex)
+    {
+        Console.WriteLine(<span class="str">&quot;Failed subscribing to job: {0}!&quot;</span>, ex.Message);
+    }
+    Console.WriteLine(<span class="str">&quot;Job {0} : {1} --&gt; Submitted&quot;</span>, i, jobId);
+
+}
+<span class="kwrd">catch</span> (Exception ex)
+{
+    Console.ForegroundColor = ConsoleColor.Red;
+    Console.WriteLine(<span class="str">&quot;Failed submitting job: {0}&quot;</span>, ex.Message);
+    Console.ForegroundColor = currentConsoleColor;
+}</pre>
+<p><br>
+Therefore the ZIP-archive needs to be named geresjobsamples.zip since the JobProcessorPackageName uses this value when submitting a job as
+<font style="background-color:#ffff00">highlighted</font> in the code above. The folder you deploy this ZIP-archive to needs to match the TenantName specified when submitting a job (highlighted in
+<font style="background-color:#ffc000">orange</font> in the code above). Assuming you use &ldquo;SampleTenant&rdquo;, the folder in BLOB-storage where you put the ZIP-package to needs to be named &ldquo;SampleTenant&rdquo;, as well.</p>
+<p>To deploy using CloudBerry Labs Storage Explorer for Azure as recommended above, simply ZIP the two files shown in explorer above (GeresSimpleJobSamples.dll and GeresSimpleJobSamples.pdb, whereas the *.pdb is optional and only needed for debugging) into
+ a ZIP archive. <strong>Make sure that both files are in the root directory of the ZIP archive and not in a sub-directory. Especially be careful if you&rsquo;re using Windows Explorer for packaging since when packaging the folder instead of the files will result
+ in having the files in a sub-folder instead of the root-folder of the ZIP archive.</strong></p>
+<p>Next copy the resulting ZIP archive in a folder called SampleTenant in your local file system. The open CloudBerry Storage explorer. In the left window connect to your GeRes2 primary storage account (the one specified in the
+<font face="Consolas">Geres.Storage.ConnectionString</font> setting) . In the right window navigate to the folder containing the previously created SampleTenant-folder that contains your ZIP-archive with the job files as shown below.</p>
+<p>If it does not exist, yet, create a container in the blob storage account using CloudBerry that is named jobprocessorfiles (as shown below). Open that container. Then drag the files from the right window (local file system) to the left window (blob storage
+ account). The result should look as in the last screen shot below.</p>
+<p><a href="http://download-codeplex.sec.s-msft.com/Download?ProjectName=geres2&DownloadId=834130"><img title="image" src="https://www.codeplex.com/Download?ProjectName=geres2&DownloadId=834130" alt="image" width="602" height="325" border="0" style="padding-top:0px; padding-left:0px; display:inline; padding-right:0px; border:0px"></a></p>
+<p><a href="http://download-codeplex.sec.s-msft.com/Download?ProjectName=geres2&DownloadId=834132"><img title="image" src="https://www.codeplex.com/Download?ProjectName=geres2&DownloadId=834132" alt="image" width="602" height="328" border="0" style="padding-top:0px; padding-left:0px; display:inline; padding-right:0px; border:0px"></a></p>
+<p>Note that you can pick any folder name or name for the ZIP-package as long as the folder name matches the TenantName-parameter for the job-submission as shown in the code above and the name of the ZIP-package matches the name of the JobProcessorPackageName
+ when submitting the job as shown above.</p>
+<p><strong>Deployment for local execution</strong></p>
+<p>Deploying jobs for local execution works exactly the same as for cloud-based GeRes2-instances. If you have specified the development storage of the Azure Emulator for local debugging, the only difference is, that you need to deploy the job files as described
+ above to the local development storage of the Azure Emulator. CloudBerry supports that as well.</p>
+</div><div class="ClearBoth"></div>

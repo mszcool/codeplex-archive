@@ -1,0 +1,38 @@
+<div class="wikidoc">
+<h3>Configuring Storage for GeRes2</h3>
+<p>GeRes2 requires several Azure Storage Services. You can use all services from one storage account or put diagnostics and logging into a separate storage account. This guidance demonstrates, how to setup and configure two storage accounts, one for the main
+ GeRes2 data and one for GeRes2 diagnostics logging. Splitting main data from logging is the recommended approach for running GeRes2 in real-world environments.</p>
+<ol>
+<li>Open the <a href="http://manage.windowsazure.com/">Microsoft Azure Management</a> portal and navigate to the Storage section in the right pane.<br>
+<a href="http://download-codeplex.sec.s-msft.com/Download?ProjectName=geres2&DownloadId=833540"><img title="image" src="https://www.codeplex.com/Download?ProjectName=geres2&DownloadId=833540" alt="image" width="501" height="273" border="0" style="padding-top:0px; padding-left:0px; display:inline; padding-right:0px; border:0px"></a>
+</li><li>Create a new storage account used for the main data, e.g. yourgeres2mainstorage.<br>
+<a href="http://download-codeplex.sec.s-msft.com/Download?ProjectName=geres2&DownloadId=833542"><img title="image" src="https://www.codeplex.com/Download?ProjectName=geres2&DownloadId=833542" alt="image" width="503" height="274" border="0" style="padding-top:0px; padding-left:0px; display:inline; padding-right:0px; border:0px"></a>
+</li><li>Create a second, new storage account used for the diagnostics data, e.g. yourgeres2diagnostics data.
+</li><li>For both storage accounts, copy the storage account secret to update the storage account connection strings in the GeRes2 configuration files, later. To do so, select one storage account and then click on Manage Access Keys in the bottom-toolbar of the
+ portal. Copy the primary access key into the clipboard or temporarily keep it in a notepad for later use. Also copy the storage account name. Repeat the same steps for the second account (if you&rsquo;re working with two accounts instead of just putting all
+ into one account).<br>
+<a href="http://download-codeplex.sec.s-msft.com/Download?ProjectName=geres2&DownloadId=833544"><img title="image" src="https://www.codeplex.com/Download?ProjectName=geres2&DownloadId=833544" alt="image" width="513" height="280" border="0" style="padding-top:0px; padding-left:0px; display:inline; padding-right:0px; border:0px"></a>
+</li><li>With the copied storage account names and primary access keys, update the GeRes2 configuration. For this purpose, continue with opening the appropriate *.cscfg file in the GeRes2_Cloud project. By default, GeRes2 ships with a ServiceConfiguration.Local.cscfg
+ for local debugging. You don&rsquo;t need to update this since it goes to the local Development storage by default. We&rsquo;d rather suggest you create a new service configuration file since using storage services in Azure is relevant for cloud-based deployments,
+ only (or if you don&rsquo;t want to use the emulator). </li><li>Update the <font face="Consolas">Geres.Storage.ConnectionString</font> setting with the storage account supposed to be the one you want to use for the main data (job tracking tables, list of batches, list of job hosts etc.). This setting exists 3 times
+ &ndash; for each role in the deployment project as shown below.<br>
+<a href="http://download-codeplex.sec.s-msft.com/Download?ProjectName=geres2&DownloadId=833546"><img title="image" src="https://www.codeplex.com/Download?ProjectName=geres2&DownloadId=833546" alt="image" width="523" height="285" border="0" style="padding-top:0px; padding-left:0px; display:inline; padding-right:0px; border:0px"></a>
+<ol>
+<li>The connection string for storage accounts looks as follows:<br>
+<font face="Consolas">DefaultEndpointsProtocol=https;AccountName=youraccontname;AccountKey=yourkey</font>
+</li><li>Replace &ldquo;youraccountname&rdquo; with the account name copied in step 4 for the storage account supposed to be the one for the main data of GeRes2.
+</li><li>Replace &ldquo;yourkey&rdquo; with the primary access key copied in step 4 for the storage account supposed to be the one for the main data of GeRes2.
+</li></ol>
+</li><li>Update the <font face="Consolas">Geres.Diagnostics.StorageConnectionString</font> and the
+<font face="Consolas">Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString</font> settings with the storage connection string for the storage account created in step 4 for logging and diagnostics. Each of these two settings is configured for each role,
+ so you&rsquo;ll need to update overall 6 configuration settings in the *.cscfg file for GeRes2 as shown below. That means that if you want you can even use different storage accounts for Azure-built-in diagnostics and for GeRes2 diagnostics. But we don&rsquo;t
+ think that&rsquo;s necessary since GeRes2 does not make heavy use of Azure diagnostics and it&rsquo;s just supposed to be the very last fallback for diagnostics.
+<br>
+<a href="http://download-codeplex.sec.s-msft.com/Download?ProjectName=geres2&DownloadId=833548"><img title="image" src="https://www.codeplex.com/Download?ProjectName=geres2&DownloadId=833548" alt="image" width="537" height="293" border="0" style="padding-top:0px; padding-left:0px; display:inline; padding-right:0px; border:0px"></a>
+</li><li>Finally in the main storage account you need to create a blob container called
+<font face="Consolas">jobprocessorfiles</font>. In this container you&rsquo;ll deploy your job implementation files in sub-directories / tenant as ZIP-archives.
+</li></ol>
+<p>That&rsquo;s it. After you&rsquo;ve finalized this configuration, you should configure Azure Active Directory and Service Bus for GeRes2 if you have not done so earlier. For more details on those topics, please look at:</p>
+<p><a title="Configuring Service Bus for GeRes2" href="https://geres2.codeplex.com/wikipage?title=Configuring%20Service%20Bus%20for%20GeRes2">Configuring Service Bus for GeRes2</a></p>
+<p><a href="https://geres2.codeplex.com/wikipage?title=Configuring%20Azure%20Active%20Directory%20for%20GeRes2">Configuring Azure Active Directory for GeRes2</a></p>
+</div><div class="ClearBoth"></div>

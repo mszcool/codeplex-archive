@@ -1,0 +1,142 @@
+<div class="wikidoc">
+<p>As documented on the main landing page for the project, GeRes2 has several components that do interact with each other through different Azure platform services. You need to create those platform services components in Azure and then configure access to
+ those in the GeRes2 configuration files.</p>
+<h3>Pre-Requisites for Development</h3>
+<p>When developing for and with GeRes2, you’ll need the following components installed on your machine:</p>
+<ul>
+<li>Visual Studio 2013 Professional or higher
+<ul>
+<li>Update 1 recommended but not required</li></ul>
+</li><li>NuGet package manager Extension installed in Visual Studio </li><li>Microsoft Azure SDK 2.2 or higher
+<ul>
+<li>Azure Emulator is required for local debugging</li></ul>
+</li><li>SQL Server Express 2008 or higher </li><li>A Microsoft Azure subscription
+<ul>
+<li>Also required for local debugging since GeRes2 has a dependency on Service Bus and does not work with Service Bus for Windows Server, yet.
+</li><li>We are planning to make GeRes2 compatible with the Azure Pack for Windows Server which is currently using older APIs as compared to Microsoft Azure in the public cloud depending on the release cycles and road map of the Azure pack for Windows Server.</li></ul>
+</li></ul>
+<h3>Dependencies on Azure Platform Services &amp; Components</h3>
+<p>In summary, the Microsoft Azure platform services leveraged and required by GeRes2 are:</p>
+<table cellspacing="0" cellpadding="2" width="851" border="1">
+<tbody>
+<tr>
+<td valign="top" width="109">
+<p align="center"><strong>Azure Service</strong></p>
+</td>
+<td valign="top" width="169">
+<p align="center"><strong>Component</strong></p>
+</td>
+<td valign="top" width="274">
+<p align="center"><strong>Name &amp; Defaults</strong></p>
+</td>
+<td valign="top" width="316">
+<p align="center"><strong>Description</strong></p>
+</td>
+</tr>
+<tr>
+<td valign="top" width="109"><strong>Cloud Services</strong></td>
+<td valign="top" width="169">Web/Worker Roles</td>
+<td valign="top" width="274">n/a</td>
+<td valign="top" width="316">GeRes2 is based on Microsoft Azure PaaS Cloud Services. The JobHub WebAPI and SignalR API runs in a WebRole while the JobHost which executes jobs runs in Worker Roles. The AutoScaler runs in WorkerRoles as well.</td>
+</tr>
+<tr>
+<td valign="top" width="109"><strong>Storage</strong></td>
+<td valign="top" width="169">Queues</td>
+<td valign="top" width="274">batch0, &lt;batchid&gt;</td>
+<td valign="top" width="316">Communication between JobHub and JobHost which is processing jobs. For each batch of jobs a separate queue will be created and one default queue called
+<font face="Consolas">batch0</font> will always be available.</td>
+</tr>
+<tr>
+<td valign="top" width="109">&nbsp;</td>
+<td valign="top" width="169">Tables</td>
+<td valign="top" width="274">listofbatches</td>
+<td valign="top" width="310">Stores the list of batches created through the GeRes2 WebAPI.</td>
+</tr>
+<tr>
+<td valign="top" width="109">&nbsp;</td>
+<td valign="top" width="169">&nbsp;</td>
+<td valign="top" width="274">listofjobs</td>
+<td valign="top" width="307">Stores status and information of jobs executed in a GeRes2 deployment.</td>
+</tr>
+<tr>
+<td valign="top" width="109">&nbsp;</td>
+<td valign="top" width="169">&nbsp;</td>
+<td valign="top" width="274">listofjobhosts</td>
+<td valign="top" width="305">Stores status of all JobHost instances currently running or Idle and instantly available for job executions.</td>
+</tr>
+<tr>
+<td valign="top" width="109">&nbsp;</td>
+<td valign="top" width="169">&nbsp;</td>
+<td valign="top" width="274">roleoperationstatus</td>
+<td valign="top" width="303">Stores status of operations executed by the AutoScaler to add/remove JobHost instances for execution.</td>
+</tr>
+<tr>
+<td valign="top" width="109">&nbsp;</td>
+<td valign="top" width="169">&nbsp;</td>
+<td valign="top" width="274">SLABLogsTable</td>
+<td valign="top" width="302">Diagnostics logs which do store all events fired as part of logging by GeRes2. If you want all events look into the Geres.Diagnostics project in the solution folder core of the GeRes solution.</td>
+</tr>
+<tr>
+<td valign="top" width="109">&nbsp;</td>
+<td valign="top" width="169">Blobs</td>
+<td valign="top" width="274">jobprocessorfiles</td>
+<td valign="top" width="301">A blob-container storing ZIP-archives for jobs to be executed in the system. Each ZIP-archive must be stored in a separate folder. The name of the folder is the name of a “tenant” in which a job gets executed. In that folder the
+ ZIP archive with files required for accessing the job must be stored. The files for the job must be stored in the ROOT-directory of the ZIP archive uploaded into a folder in this container.</td>
+</tr>
+<tr>
+<td valign="top" width="109"><strong>Service Bus</strong></td>
+<td valign="top" width="169">Topics/Subscriptions</td>
+<td valign="top" width="274">commandsforautoscaler</td>
+<td valign="top" width="301">Used for sending commands/status-updates from JobHost instances to the AutoScaler. This enables the AutoScaler to react, e.g. put instances IDLE or add/remove instances as needed.</td>
+</tr>
+<tr>
+<td valign="top" width="109">&nbsp;</td>
+<td valign="top" width="169">&nbsp;</td>
+<td valign="top" width="274">commandsforjobhost</td>
+<td valign="top" width="300">Used for sending commands from the AutoScaler to JobHost instances. These are especially status updates (e.g. run and actively query the job queue as fast as possible or IDLE and query the job queue in longer intervals to safe storage
+ transaction costs).</td>
+</tr>
+<tr>
+<td valign="top" width="109">&nbsp;</td>
+<td valign="top" width="169">&nbsp;</td>
+<td valign="top" width="274">geres2_jobstatus</td>
+<td valign="top" width="300">Topic used to fire job-status update events to the JobHub which in turn uses SignalR-based notifications. This topic can also be used to fire events to other, integrated applications, as well. We suggest to use the Service Bus Shared
+ Access Signature feature for such scenarios.</td>
+</tr>
+<tr>
+<td valign="top" width="109">&nbsp;</td>
+<td valign="top" width="169">&nbsp;</td>
+<td valign="top" width="274">geres2_canceljobs</td>
+<td valign="top" width="300">A topic which is used internally by GeRes2 to cancel jobs actively running in the system.</td>
+</tr>
+<tr>
+<td valign="top" width="109">&nbsp;</td>
+<td valign="top" width="169">&nbsp;</td>
+<td valign="top" width="274">signalr_topic_geres2_0</td>
+<td valign="top" width="300">A topic which is used internally by GeRes2 to enable SignalR realtime notifications to clients and browsers subscribed to SignalR Hubs with the GeRes2 Client SDK.</td>
+</tr>
+<tr>
+<td valign="top" width="109"><strong>Azure <br>
+Active Directory</strong></td>
+<td valign="top" width="169">Authentication and permissions</td>
+<td valign="top" width="274">JobHub WebAPI and consumers</td>
+<td valign="top" width="300">GeRes2 leverages Active Directory Service Credentials for authentication against the JobHub (WebAPI and SignalR).<br>
+<br>
+Thus it prevents unauthorized callers from calling into the GeRes2 API when running in the public cloud.</td>
+</tr>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<p>For setting up an environment, whether it’s test or production, this means you need to first<strong> create storage accounts and a service bus namespace</strong> as well as configure your Azure Active Directory that can be used by GeRes2. We prepared GeRes2
+ to support the following setup which is also the recommendation for production environments:</p>
+<ul>
+<li>Primary storage account: used for everything except Windows Azure Diagnostics and the table SLABLogsTable.
+</li><li>Log storage account: used for Windows Azure Diagnostics and the aforementioned SLABLogsTable as listed above.
+</li><li>One Service Bus namespace: used for all topics/subscriptions described above.
+</li><li>One Azure Active Directory: used for authorizing calls against the GeRes2 JobHub.
+<ul>
+<li>You need to register your GeRes2 JobHub as a WebAPI. </li><li>You need to register at least one client with a secret key used for authentication against Azure AD.</li></ul>
+</li></ul>
+<p>If you intend to use GeRes2 for learning or development &amp; test environments, combining the Primary storage account and the Log storage account into a single storage account is perfectly fine. For production environments we nevertheless recommend keeping
+ those separate so that the load of logging does only have a minimal impact on your execution performance.</p>
+</div><div class="ClearBoth"></div>

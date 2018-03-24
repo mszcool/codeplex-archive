@@ -1,0 +1,61 @@
+<div class="wikidoc">
+<h1><strong><a title="GeRes2 Architecture" href="http://download-codeplex.sec.s-msft.com/Download?ProjectName=geres2&DownloadId=833459"></a>GeRes2 - a .NET-based Job-Execution Framework for Microsoft Azure Platform Service</strong></h1>
+<p>This repository contains the source code for the GeRes2 framework. See the Documentation tab for a more details on how to use this framework.</p>
+<h2>Overview</h2>
+<p>GeRes2 is a framework for asynchronous, reliable and scalable execution of short- and long-running jobs across multiple Azure Platform as a Service compute instances</p>
+<h2>Description</h2>
+<p>We are all familiar with the problem&hellip;how can I execute multiple jobs at scale, asynchronously in the Cloud? Most likely we come up with an architecture like this:</p>
+<ul>
+<li>A front end to take requests </li><li>A storage queue to persist requests and manage resiliency </li><li>A back end to process the requests asynchronously </li></ul>
+<p>&nbsp;</p>
+<p><a href="http://download-codeplex.sec.s-msft.com/Download?ProjectName=geres2&DownloadId=833652"><img title="geresrough" src="https://www.codeplex.com/Download?ProjectName=geres2&DownloadId=833652" alt="geresrough" width="728" height="382" border="0" style="padding-top:0px; padding-left:0px; display:inline; padding-right:0px; border-width:0px"></a></p>
+<p>&nbsp;</p>
+<p>But it is not always that straightforward. Further considerations may include:</p>
+<ul>
+<li>Job API (front end) needs to be simple and intuitive (Web API and .NET Client SDK)
+</li><li>Job Queues need to scale up and down </li><li>Jobs may need to be prioritized </li><li>Jobs need to fail safely </li><li>Job Notifications (push and pull) </li><li>Job Status needs to monitored </li><li>Job Processors (back end) needs to scale up and down based on custom rules </li><li>Job Orchestration (workflow and hierarchy) </li><li>Preconditions (infrastructure setup)&nbsp; </li><li>Custom Jobs (including discovery at runtime not just at design time) </li><li>Multiple Jobs can be processed in parallel on a single Job Processor machine *
+</li><li>Multi-tenancy with job isolation * </li><li>On-premises deployment * </li></ul>
+<p>GeRes2 considers all of these points and provides a framework that can be tailored to meet the requirements of your business needs and scenarios.</p>
+<p>*<font size="1"> At the time of publishing this feature was not included.</font></p>
+<h2>How it Works</h2>
+<p>Jobs:</p>
+<ul>
+<li>The implementation of your jobs (i.e. the code) are stored as a zip files in Azure Blob Storage
+</li></ul>
+<p>Client:</p>
+<ul>
+<li>Request&hellip;the client submits requests to action a job (or batch of jobs) to be processed. All requests are made via a Job Web API hosted on the Job Hub (Azure Web Role)
+</li><li>[optional] Notifications&hellip;the client registers their interest to receive notifications on the progress of their job (SignalR API hosted on the Job Hub)
+</li><li>[optional] Cancel&hellip;the client submits a that the execution of a job (or batch of jobs) needs to cancelled using the Job API hosted on the Job Hub.
+</li><li>[optional] Monitoring&hellip;the client submits requests to the Job Monitoring API to GET status of submitted jobs. All requests are made via a Job Web API hosted on the Job Hub&nbsp;
+</li></ul>
+<p>Job Execution:</p>
+<ul>
+<li>Successful job requests are placed in a queue (Azure Storage Queue) and recorded for status monitoring (Azure Table Storage)
+</li><li>Processed&hellip;the queue(s) of jobs are read in order by priority and processed by the Job Host (Azure Worker Role)
+<ol>
+<li>The job implementation is downloaded from Blob Storage (see Setup) </li><li>The status of the job is updated to &lsquo;Started&rsquo; (Table Storage) </li><li>A Notification that the job has started is published to the Status Update Topic (Azure Service Bus)
+</li><li>The job is processed in isolation within the Job Hub </li><li>The status of the job is updated to &lsquo;In Progress&rsquo; (Table Storage)
+</li><li>[optional] Notification of the job&rsquo;s progress is published to the Status Update Topic (Azure Service Bus)
+</li><li>On completion (success or failure) a notification the job has completed is published to the Status Update Topic (Azure Service Bus)
+</li><li>The status of the job is updated to &lsquo;Complete&rsquo; (Table Storage) </li><li>The executing code is removed from the machine </li><li>The job is removed from the queue </li></ol>
+</li><li>[optional] Cancellation requests are sent as commands to the Job Hosts as messages published to the Cancellation Topic (Azure Service Bus)
+</li></ul>
+<p>Job Host Auto-scaling:</p>
+<ul>
+<li>The AutoScaler (Azure Worker Role) manages the lifecycle of the Job Hosts through commands to and from Job Hosts based on the rules outlined in custom policies and the current topology of the Job Hosts (stored in Azure Table Storage). Commands are messages
+ published to the Job Host Action Topic and Job Host Status Topic (Azure Service Bus).
+</li><li>Custom policies allow the owner of the service to determine the rules of how Job Hosts can be scaled (up and down). For example, as the number of jobs in the queue increases, the rule maybe to increase the number of Job Hosts.&nbsp;
+</li></ul>
+<p>Putting this all together, the architecture of GeRes2 with all of its core components and their relationship looks as follows:</p>
+<p><img src="http://download-codeplex.sec.s-msft.com/Download?ProjectName=geres2&DownloadId=833459" alt="http://download-codeplex.sec.s-msft.com/Download?ProjectName=geres2&DownloadId=833459" width="586" height="327"></p>
+<h1>Source Code</h1>
+<p>The source code consists of 5 parts:</p>
+<ol>
+<li>Cloud deployment package (includes a Job Submission and Monitoring Web API) </li><li>.NET Client SDK </li><li>Sample Clients </li><li>Sample Jobs </li><li>Sample Auto-scaling policies </li></ol>
+<p>Once you have cloned this site please refer to the documentation section which has steps on how to deploy locally (VS Azure Emulator) and to your own Cloud Service subscription.</p>
+<h1>Contribute</h1>
+<p>You can contribute by reviewing and sending feedback, suggesting and trying out new features as they are implemented, submitting bugs and helping us verify fixes as they are checked in.</p>
+<h1>Roadmap</h1>
+<p>The source code on this repo is under active development that will be part of our next release. Planned features and future direction we will be available soon.&nbsp;</p>
+</div><div class="ClearBoth"></div>

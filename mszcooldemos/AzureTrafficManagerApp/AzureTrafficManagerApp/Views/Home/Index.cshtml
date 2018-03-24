@@ -1,0 +1,58 @@
+﻿@model AzureTrafficManagerApp.Models.AvailabilityViewModel
+@{
+    ViewBag.Title = "Home Page";
+}
+@section featured {
+    <section class="featured" style="background-color: @Model.BackgroundColor">
+        <div class="content-wrapper">
+            <hgroup class="title">
+                <h1>Global Traffic Manager</h1>
+                <h2>Demonstrate globally available cloud applications on Azure!</h2>
+            </hgroup>
+            <ul>
+                <li>This simple application can be deployed in multiple data centers.</li>
+                <li>Each deployment should be configured with a separate background color and title.</li>
+                <li>After binding the deploying behind traffic manager policies you should be able to see the DNS-based routing.</li>
+                <li>
+                Also note that with a call to /SwapOffline you can simulate an outage of a page to make it not
+                <li>respond anymore to Traffic Manager ping requests within the required amount of time.</li>
+            </ul>
+        </div>
+    </section>
+}
+<h3>The following table summarizes the availability of the services:</h3>
+<table class="">
+    <thead>
+        <tr>
+            <th>Service Name / Location</th>
+            <th>Is Online?</th>
+            <th>Is Set Offline?</th>
+            <th>Last Ping Time</th>
+            <th>Last Success Ping Time</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var s in Model.ServiceStates)
+        {
+            <tr>
+                <td>@s.ServiceName</td>
+                @if (s.IsOnline)
+                {
+                    <td style="background-color: green; text-align: center">@s.IsOnline</td>
+                }
+                else
+                {
+                    <td style="background-color: red; text-align: center">@s.IsOnline</td> 
+                }
+                <td>@s.IsSetToOffline.ToString()</td>
+                <td>@s.LastPingTime.ToString()</td>
+                <td>
+                    @if (s.LastSuccessPingTime.HasValue)
+                    {
+                        @s.LastSuccessPingTime.ToString()
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

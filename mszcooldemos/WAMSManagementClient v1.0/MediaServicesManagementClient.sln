@@ -1,0 +1,29 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MediaServicesManagementClient", "MediaServicesManagementClient\MediaServicesManagementClient.csproj", "{45695337-BA0B-4CB1-8E3C-1BD1D061423C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MediaServicesClientModel", "MediaServicesClientModel\MediaServicesClientModel.csproj", "{7BE1ABC5-FFC1-4EA4-8382-BDDDBED8FA77}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{45695337-BA0B-4CB1-8E3C-1BD1D061423C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{45695337-BA0B-4CB1-8E3C-1BD1D061423C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{45695337-BA0B-4CB1-8E3C-1BD1D061423C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{45695337-BA0B-4CB1-8E3C-1BD1D061423C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7BE1ABC5-FFC1-4EA4-8382-BDDDBED8FA77}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7BE1ABC5-FFC1-4EA4-8382-BDDDBED8FA77}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7BE1ABC5-FFC1-4EA4-8382-BDDDBED8FA77}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7BE1ABC5-FFC1-4EA4-8382-BDDDBED8FA77}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		EnterpriseLibraryConfigurationToolBinariesPath = packages\TransientFaultHandling.Core.5.1.1209.1\lib\NET4
+	EndGlobalSection
+EndGlobal

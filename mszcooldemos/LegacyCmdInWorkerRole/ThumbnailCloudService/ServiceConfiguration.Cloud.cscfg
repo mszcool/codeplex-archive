@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ServiceConfiguration serviceName="ThumbnailCloudService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceConfiguration" osFamily="3" osVersion="*" schemaVersion="2013-03.2.0">
+  <Role name="ThumbnailFrontend">
+    <Instances count="1" />
+    <ConfigurationSettings>
+      <Setting name="primaryStorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=mszcooldemosession;AccountKey=24CYHr0IBDIXte9bJRuiAJ4HzFR4rSFNzKjrvr5+lL4NnSL0je4VAbYmaEzDnxvBttO215/QhaL++5Z9xrnygQ==" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.Enabled" value="true" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountUsername" value="Administrator" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountEncryptedPassword" value="MIIBrQYJKoZIhvcNAQcDoIIBnjCCAZoCAQAxggFOMIIBSgIBADAyMB4xHDAaBgNVBAMME1dpbmRvd3MgQXp1cmUgVG9vbHMCEGm7bNj3XfOPSTlQpZ/asAswDQYJKoZIhvcNAQEBBQAEggEAho9O6plL93hNApB729tfGh107xa5Qtllwdm9pe86DIrxOzKFOwpPFmr7WO1+/Gx52ayFEX+TK6zV8dltn/2ypIRP9J2PtmKYjeDq1Z8RsEYtRZwsR30z6m405Bu3dF2rDifUe0OVytpMwm2gE0vpokl3N7Wvg0bfx+5TdZ+P0sqnrpUMnKtJF/FNW90CMMM1VI1gVDfTwJPcY5slcA9c6GcS/rhtyGS7MJGvpzTwaqfO9GjxxmnNYeEPand0mOHQt92Fi4ArcyeIvFy8iRiT8NzrAvgSnLAW+04Bn4nSn5CdGzPVmZqXjJhJTvSy4OK6yHbNa/q6ba1wxlPBuWZh0TBDBgkqhkiG9w0BBwEwFAYIKoZIhvcNAwcECCBGUlYENAsrgCDXtEA/z4U430+c76MQY74PFtonnRLmtkxPykY++3X/1g==" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountExpiration" value="2014-08-06T23:59:59.0000000+02:00" />
+    </ConfigurationSettings>
+    <Certificates>
+      <Certificate name="Microsoft.WindowsAzure.Plugins.RemoteAccess.PasswordEncryption" thumbprint="B081CD43D75F961E9EB9790026219DAFDC07A96E" thumbprintAlgorithm="sha1" />
+    </Certificates>
+  </Role>
+  <Role name="ThumbnailBackend">
+    <Instances count="1" />
+    <ConfigurationSettings>
+      <Setting name="primaryStorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=mszcooldemosession;AccountKey=24CYHr0IBDIXte9bJRuiAJ4HzFR4rSFNzKjrvr5+lL4NnSL0je4VAbYmaEzDnxvBttO215/QhaL++5Z9xrnygQ==" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.Enabled" value="true" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountUsername" value="Administrator" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountEncryptedPassword" value="MIIBrQYJKoZIhvcNAQcDoIIBnjCCAZoCAQAxggFOMIIBSgIBADAyMB4xHDAaBgNVBAMME1dpbmRvd3MgQXp1cmUgVG9vbHMCEGm7bNj3XfOPSTlQpZ/asAswDQYJKoZIhvcNAQEBBQAEggEAho9O6plL93hNApB729tfGh107xa5Qtllwdm9pe86DIrxOzKFOwpPFmr7WO1+/Gx52ayFEX+TK6zV8dltn/2ypIRP9J2PtmKYjeDq1Z8RsEYtRZwsR30z6m405Bu3dF2rDifUe0OVytpMwm2gE0vpokl3N7Wvg0bfx+5TdZ+P0sqnrpUMnKtJF/FNW90CMMM1VI1gVDfTwJPcY5slcA9c6GcS/rhtyGS7MJGvpzTwaqfO9GjxxmnNYeEPand0mOHQt92Fi4ArcyeIvFy8iRiT8NzrAvgSnLAW+04Bn4nSn5CdGzPVmZqXjJhJTvSy4OK6yHbNa/q6ba1wxlPBuWZh0TBDBgkqhkiG9w0BBwEwFAYIKoZIhvcNAwcECCBGUlYENAsrgCDXtEA/z4U430+c76MQY74PFtonnRLmtkxPykY++3X/1g==" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteAccess.AccountExpiration" value="2014-08-06T23:59:59.0000000+02:00" />
+      <Setting name="Microsoft.WindowsAzure.Plugins.RemoteForwarder.Enabled" value="true" />
+    </ConfigurationSettings>
+    <Certificates>
+      <Certificate name="Microsoft.WindowsAzure.Plugins.RemoteAccess.PasswordEncryption" thumbprint="B081CD43D75F961E9EB9790026219DAFDC07A96E" thumbprintAlgorithm="sha1" />
+    </Certificates>
+  </Role>
+</ServiceConfiguration>

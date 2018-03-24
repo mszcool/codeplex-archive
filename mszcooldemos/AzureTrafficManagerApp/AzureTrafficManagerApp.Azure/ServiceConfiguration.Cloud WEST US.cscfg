@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ServiceConfiguration serviceName="AzureTrafficManagerApp.Azure" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceConfiguration" osFamily="3" osVersion="*" schemaVersion="2013-03.2.0">
+  <Role name="AzureTrafficManagerApp">
+    <Instances count="1" />
+    <ConfigurationSettings>
+      <Setting name="StorageConnectionStringSetting" value="DefaultEndpointsProtocol=https;AccountName=storemarioszpnorth;AccountKey=LuTR4mztKoMKFzUP8OfVsaYVuF4Bv7Zr/gYWhxtaXk2c9RU6DNmoJ27mI00B80u6uemsZR9Bz38uODR1n9O29w==" />
+      <Setting name="BackgroundColorSetting" value="blue" />
+      <Setting name="LocationNameSetting" value="WEST US Service Deployment" />
+    </ConfigurationSettings>
+  </Role>
+</ServiceConfiguration>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ServiceConfiguration serviceName="GeRes_PoC" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceConfiguration" osFamily="4" osVersion="*" schemaVersion="2013-10.2.2">
+  <Role name="Geres.Azure.PaaS.JobProcessor">
+    <Instances count="5" />
+    <ConfigurationSettings>
+      <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="UseDevelopmentStorage=true" />
+      <Setting name="Geres.Storage.ConnectionString" value="UseDevelopmentStorage=true" />
+      <Setting name="Geres.Messaging.SignalR.HubURL" value="http://127.0.0.1:81/" />
+      <Setting name="Geres.Config.WorkerAttemptsToWorkBeforeIdle" value="100" />
+      <Setting name="Geres.Messaging.ServiceBusConnectionString" value="Endpoint=sb://yoursbnamespace.servicebus.windows.net/;SharedSecretIssuer=yoursbissuer;SharedSecretValue=yoursbsecret" />
+      <Setting name="Geres.Diagnostics.StorageConnectionString" value="UseDevelopmentStorage=true" />
+      <Setting name="Geres.JobProcessor.IntervalBetweenJobQueriesInMilliSeconds.Short" value="1000" />
+      <Setting name="Geres.JobProcessor.IntervalBetweenJobQueriesInMilliSeconds.Long" value="20000" />
+      <Setting name="Geres.JobProcessor.IdlePingIntervalToAutoScalerInSeconds" value="60" />
+      <Setting name="Geres.JobProcessor.AutoScalerCommandCheckIntervalInSeconds" value="60" />
+      <Setting name="Geres.Diagnostics.Level" value="ImportantOnly" />
+      <Setting name="Geres.JobProcessor.MessageLockTimeInMinutes" value="120" />
+      <Setting name="Geres.JobProcessor.MessageRetryAttempts" value="5" />
+      <Setting name="Geres.AutoScaler.EnableGeresAutoScaler" value="false" />
+      <Setting name="Geres.JobProcessor.Cancellation.EnableSingleJobCancellation" value="true" />
+      <Setting name="Geres.JobProcessor.Cancellation.SingleJobCancellationTimeWindowInSeconds" value="3600" />
+      <Setting name="Geres.JobProcessor.Cancellation.SingleJobCancellationMessageTimeToLiveInSeconds" value="120" />
+    </ConfigurationSettings>
+  </Role>
+  <Role name="Geres.Azure.PaaS.JobHub">
+    <Instances count="3" />
+    <ConfigurationSettings>
+      <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="UseDevelopmentStorage=true" />
+      <Setting name="Geres.Storage.ConnectionString" value="UseDevelopmentStorage=true" />
+      <Setting name="Geres.Messaging.ServiceBusConnectionString" value="Endpoint=sb://yoursbnamespace.servicebus.windows.net/;SharedSecretIssuer=yoursbissuer;SharedSecretValue=yoursbsecret" />
+      <Setting name="Geres.Security.AzureAdTenant" value="mszdemos.onmicrosoft.com" />
+      <Setting name="Geres.Security.AzureAdAudienceUri" value="http://geres2.ted.microsoft.com/local" />
+      <Setting name="Geres.Diagnostics.StorageConnectionString" value="UseDevelopmentStorage=true" />
+      <Setting name="Geres.Diagnostics.Level" value="ImportantOnly" />
+    </ConfigurationSettings>
+  </Role>
+</ServiceConfiguration>

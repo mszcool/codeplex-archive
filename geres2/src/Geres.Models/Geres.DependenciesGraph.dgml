@@ -1,0 +1,551 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<DirectedGraph DataVirtualized="True" GraphDirection="TopToBottom" Layout="Sugiyama" xmlns="http://schemas.microsoft.com/vs/2009/dgml">
+  <Nodes>
+    <Node Id="(@7 Namespace=Geres.Samples.ThumbnailGeneratorClient.Properties)" Category="CodeSchema_Namespace" Bounds="558.409334656998,-66.1859267520872,332.24,25" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" Group="Collapsed" Label="Geres‎.Samples‎.ThumbnailGeneratorClient‎.Properties" UseManualLocation="True" />
+    <Node Id="@100" Category="CodeSchema_Assembly" AssemblyTimestamp="05/06/2014 09:23:50" Bounds="406.618250099305,91.7876788248205,169.15,25" CodeSchemaProperty_StrongName="Geres.Diagnostics, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" FilePath="$(1302b5e7-839b-457d-bb16-e34776c3cdb6.OutputPath)" Group="Collapsed" Label="Geres.Diagnostics.dll">
+      <Category Ref="FileSystem.Category.FileOfType.dll" />
+    </Node>
+    <Node Id="@102" Category="CodeSchema_Assembly" AssemblyTimestamp="05/06/2014 09:23:47" Bounds="1046.33635330551,-144.076979897365,219.016666666666,25" CodeSchemaProperty_StrongName="Geres.AutoScaler.Interfaces, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" FilePath="$(ea57a5d5-70e2-4ded-83df-2216dd11efe0.OutputPath)" Group="Collapsed" Label="Geres.AutoScaler.Interfaces.dll">
+      <Category Ref="FileSystem.Category.FileOfType.dll" />
+    </Node>
+    <Node Id="@104" Category="CodeSchema_Assembly" AssemblyTimestamp="05/06/2014 09:23:50" Bounds="606.164916765972,91.7876774899127,212.056666666666,25" CodeSchemaProperty_StrongName="Geres.Engine.JobFactories, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" FilePath="$(722480f6-46f9-475a-89b1-27a758e34a28.OutputPath)" Group="Collapsed" Label="Geres.Engine.JobFactories.dll">
+      <Category Ref="FileSystem.Category.FileOfType.dll" />
+    </Node>
+    <Node Id="@106" Category="CodeSchema_Assembly" AssemblyTimestamp="05/06/2014 09:23:51" Bounds="170.584916765971,91.7876814946349,173.216666666667,25" CodeSchemaProperty_StrongName="Geres.Repositories, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" FilePath="$(251d260f-29ce-42aa-b56f-a2fc9d45f71d.OutputPath)" Group="Collapsed" Label="Geres.Repositories.dll">
+      <Category Ref="FileSystem.Category.FileOfType.dll" />
+    </Node>
+    <Node Id="@108" Category="CodeSchema_Assembly" AssemblyTimestamp="05/06/2014 09:23:47" Bounds="1128.12430625383,148.157400659874,197.863333333334,25" CodeSchemaProperty_StrongName="Geres.Common.Entities, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" ErrorMessage="Node 'Geres.Common.Entities.dll' has a hub value of 46." FilePath="$(28e95b9c-4e68-44df-8595-395a7693905f.OutputPath)" Group="Collapsed" Hub="46" Label="Geres.Common.Entities.dll">
+      <Category Ref="FileSystem.Category.FileOfType.dll" />
+    </Node>
+    <Node Id="@110" Category="CodeSchema_Assembly" AssemblyTimestamp="05/06/2014 09:23:48" Bounds="421.972946380943,457.456380749687,203.9,25" CodeSchemaProperty_StrongName="GeresSimpleJobSamples, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" FilePath="$(aff84ed7-8814-410d-ba73-345b726f1864.OutputPath)" Group="Collapsed" Label="GeresSimpleJobSamples.dll">
+      <Category Ref="FileSystem.Category.FileOfType.dll" />
+    </Node>
+    <Node Id="@112" Category="CodeSchema_Assembly" AssemblyTimestamp="05/06/2014 09:23:52" Bounds="1186.68468663884,-199.076987143486,236.32,25" CodeSchemaProperty_StrongName="GeresAutoscalerPolicySamples, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" FilePath="$(0c89398a-6633-4159-880a-65149487ba5d.OutputPath)" Group="Collapsed" Label="GeresAutoscalerPolicySamples.dll">
+      <Category Ref="FileSystem.Category.FileOfType.dll" />
+    </Node>
+    <Node Id="@128" Category="CodeSchema_Assembly" AssemblyTimestamp="05/06/2014 09:23:52" Bounds="1735.67610503285,242.440752708368,191.2,25" CodeSchemaProperty_StrongName="Geres.ClientSdk.NetFx, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" FilePath="$(58b5bb89-f248-4b02-bb86-6c034e0cf4fa.OutputPath)" Group="Collapsed" Label="Geres.ClientSdk.NetFx.dll">
+      <Category Ref="FileSystem.Category.FileOfType.dll" />
+    </Node>
+    <Node Id="@129" Category="CodeSchema_Namespace" Bounds="591.939334656998,-231.185926752087,275.87,25" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" Group="Collapsed" Label="Geres‎.Samples‎.ThumbnailGeneratorClient" UseManualLocation="True" />
+    <Node Id="@130" Category="CodeSchema_Namespace" Bounds="561.701001323664,-176.185926752087,336.346666666667,25" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" Group="Collapsed" Label="Geres‎.Samples‎.ThumbnailGeneratorClient‎.Controllers" UseManualLocation="True" />
+    <Node Id="@131" Category="CodeSchema_Namespace" Bounds="558.409334656997,-121.185926752087,342.93,25" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" Group="Collapsed" Label="Geres‎.Samples‎.ThumbnailGeneratorClient‎.ViewModels" UseManualLocation="True" />
+    <Node Id="@16" Category="CodeSchema_Assembly" AssemblyTimestamp="05/06/2014 09:23:49" Bounds="421.972946380251,512.456388175724,282.34,25.0000000000001" CodeSchemaProperty_StrongName="Geres.Samples.ThumbnailGeneratorJob, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" FilePath="$(4fde8b47-2b57-4a69-95d1-e6fc6a43f4d6.OutputPath)" Group="Collapsed" Label="Geres.Samples.ThumbnailGeneratorJob.dll">
+      <Category Ref="FileSystem.Category.FileOfType.dll" />
+    </Node>
+    <Node Id="@18" Category="CodeSchema_Assembly" AssemblyTimestamp="05/06/2014 09:23:58" Bounds="376.7080630234,-199.625133630107,209.776666666667,25" CodeSchemaProperty_StrongName="Geres.Azure.PaaS.JobHub, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" FilePath="$(cc987857-ddad-4a35-bd81-6ad7819675aa.OutputPath)" Group="Collapsed" Label="Geres.Azure.PaaS.JobHub.dll" UseManualLocation="True">
+      <Category Ref="FileSystem.Category.FileOfType.dll" />
+    </Node>
+    <Node Id="@2" Category="CodeSchema_Assembly" AssemblyTimestamp="05/06/2014 09:23:55" Bounds="1512.95610503285,187.440745262335,264.639999999999,25" CodeSchemaProperty_StrongName="GeresJobRequestorSampleConsole, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" FilePath="$(d9aac0b9-81b6-4bd3-a7f4-8a2ce0b9a139.OutputPath)" Group="Collapsed" Label="GeresJobRequestorSampleConsole.exe">
+      <Category Ref="FileSystem.Category.FileOfType.exe" />
+    </Node>
+    <Node Id="@26" Category="CodeSchema_Assembly" AssemblyTimestamp="05/06/2014 09:23:54" Bounds="303.176583432638,36.7876755778349,144.033333333333,25" CodeSchemaProperty_StrongName="Geres.Engine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" ErrorMessage="Node 'Geres.Engine.dll' has a hub value of 28." FilePath="$(4d1c307d-17d4-43f8-aa0b-7f4bf20ca1d7.OutputPath)" Group="Collapsed" Hub="28" Label="Geres.Engine.dll">
+      <Category Ref="FileSystem.Category.FileOfType.dll" />
+    </Node>
+    <Node Id="@28" Category="CodeSchema_Assembly" AssemblyTimestamp="05/06/2014 09:23:48" Bounds="1738.56443836618,297.440760154401,185.423333333333,25" CodeSchemaProperty_StrongName="Geres.ClientSdk.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" FilePath="$(4b769607-a5bf-4813-b2bc-c3b1202bd9b7.OutputPath)" Group="Collapsed" Label="Geres.ClientSdk.Core.dll">
+      <Category Ref="FileSystem.Category.FileOfType.dll" />
+    </Node>
+    <Node Id="@4" Category="CodeSchema_Assembly" AssemblyTimestamp="05/06/2014 09:23:47" Bounds="1512.95610503284,352.440767600433,206.246666666667,25" CodeSchemaProperty_StrongName="ThumbnailProducerApp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" FilePath="$(673b38c0-c387-4d30-9888-2403e87765da.OutputPath)" Group="Collapsed" Label="ThumbnailProducerApp.exe">
+      <Category Ref="FileSystem.Category.FileOfType.exe" />
+    </Node>
+    <Node Id="@52" Category="CodeSchema_Assembly" AssemblyTimestamp="05/06/2014 09:23:49" Bounds="191.577961862802,228.385323405229,126.256666666666,25" CodeSchemaProperty_StrongName="Geres.Util, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" FilePath="$(974252fd-1725-4b71-ba03-78557a3f1f8a.OutputPath)" Group="Collapsed" Label="Geres.Util.dll" UseManualLocation="True">
+      <Category Ref="FileSystem.Category.FileOfType.dll" />
+    </Node>
+    <Node Id="@6" Category="CodeSchema_Assembly" AssemblyTimestamp="05/06/2014 09:23:52" Bounds="641.061583432637,36.7876715731127,142.263333333334,25" CodeSchemaProperty_StrongName="geresjobwp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" FilePath="$(6ce4eb23-2f82-4429-92a5-9032bc1c5d0f.OutputPath)" Group="Collapsed" Label="geresjobwp.exe">
+      <Category Ref="FileSystem.Category.FileOfType.exe" />
+    </Node>
+    <Node Id="@72" Category="CodeSchema_Assembly" AssemblyTimestamp="05/06/2014 09:23:48" Bounds="481.399916765971,201.787690658421,195.586666666667,25" CodeSchemaProperty_StrongName="Geres.Engine.Common, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" FilePath="$(a80005c8-8677-4122-ab48-446c92f5c294.OutputPath)" Group="Collapsed" Label="Geres.Engine.Common.dll">
+      <Category Ref="FileSystem.Category.FileOfType.dll" />
+    </Node>
+    <Node Id="@74" Category="CodeSchema_Assembly" AssemblyTimestamp="05/06/2014 09:23:47" Bounds="1148.51263958717,93.1573947430735,157.086666666667,25.0000000000002" CodeSchemaProperty_StrongName="Geres.Common, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" ErrorMessage="Node 'Geres.Common.dll' has a hub value of 25." FilePath="$(4c62427a-679d-41a6-9594-5de2061c0d3a.OutputPath)" Group="Collapsed" Hub="25" Label="Geres.Common.dll">
+      <Category Ref="FileSystem.Category.FileOfType.dll" />
+    </Node>
+    <Node Id="@8" Category="CodeSchema_Assembly" AssemblyTimestamp="05/06/2014 09:23:55" Bounds="1808.51110503285,187.440745262335,299.53,25" CodeSchemaProperty_StrongName="Geres.Samples.ThumbnailGeneratorClient, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" DelayedChildNodesState="Fetched" DelayedCrossGroupLinksState="Fetched" FetchedChildrenCount="4" FilePath="$(458c6222-95a7-4af5-a341-c74d9a285e0c.OutputPath)" Group="Collapsed" Label="Geres.Samples.ThumbnailGeneratorClient.exe">
+      <Category Ref="FileSystem.Category.FileOfType.exe" />
+    </Node>
+    <Node Id="@92" Category="CodeSchema_Assembly" AssemblyTimestamp="05/06/2014 09:23:57" Bounds="1042.81801997217,-254.077001854858,226.053333333333,25.0000000000001" CodeSchemaProperty_StrongName="Geres.Azure.PaaS.AutoScaler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" FilePath="$(25fe0f1b-a0a1-4c5c-a0ce-6308893625f1.OutputPath)" Group="Collapsed" Label="Geres.Azure.PaaS.AutoScaler.dll">
+      <Category Ref="FileSystem.Category.FileOfType.dll" />
+    </Node>
+    <Node Id="@94" Category="CodeSchema_Assembly" AssemblyTimestamp="05/06/2014 09:23:54" Bounds="959.274686638842,-199.076990876219,165.14,25" CodeSchemaProperty_StrongName="Geres.AutoScaler, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" FilePath="$(fb048276-48b1-47ea-a06d-3c6b9fcac660.OutputPath)" Group="Collapsed" Label="Geres.AutoScaler.dll">
+      <Category Ref="FileSystem.Category.FileOfType.dll" />
+    </Node>
+    <Node Id="@96" Category="CodeSchema_Assembly" AssemblyTimestamp="05/06/2014 09:23:57" Bounds="376.708062953157,-144.625033661731,238.546666666667,25" CodeSchemaProperty_StrongName="Geres.Azure.PaaS.JobProcessor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" FilePath="$(01e6eeef-9a96-4866-90c3-805644f19103.OutputPath)" Group="Collapsed" Label="Geres.Azure.PaaS.JobProcessor.dll" UseManualLocation="True">
+      <Category Ref="FileSystem.Category.FileOfType.dll" />
+    </Node>
+    <Node Id="@98" Category="CodeSchema_Assembly" AssemblyTimestamp="05/06/2014 09:23:49" Bounds="477.379916765971,146.787684741621,203.626666666667,25" CodeSchemaProperty_StrongName="Geres.Engine.BuiltInJobs, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" DelayedChildNodesState="NotFetched" DelayedCrossGroupLinksState="Fetched" FilePath="$(7d44ce4e-347e-4e9f-b7c1-222960b51376.OutputPath)" Group="Collapsed" Label="Geres.Engine.BuiltInJobs.dll">
+      <Category Ref="FileSystem.Category.FileOfType.dll" />
+    </Node>
+    <Node Id="AzureHostingFront-Ends" Bounds="356.708062953157,-239.625233645919,278.546666666667,140.0003" Group="Expanded" Label="Azure Hosting Front-Ends" UseManualLocation="True" />
+    <Node Id="Client-side" Bounds="1492.95610503284,147.440534197563,635.085000000002,250.0005" Group="Expanded" UseManualLocation="True" />
+    <Node Id="GeResCoreEngine" Bounds="150.584916765971,-3.21256888423338,687.636666666668,276.598132746808" Group="Expanded" IsHubContainer="True" Label="GeRes Core Engine" UseManualLocation="True" />
+    <Node Id="GeResCustomAutoScalerWithCustomPolicies" Bounds="939.274686638841,-294.077190461447,503.729999999999,195.0004" Group="Expanded" Label="GeRes Custom AutoScaler with Custom Policies" UseManualLocation="True" />
+    <Node Id="JobCustomerImplementations" Bounds="401.972946380252,417.446046608916,322.34,140.0003" Group="Expanded" Label="Job Customer Implementations" UseManualLocation="True" />
+    <Node Id="SharedLibraries(acrossServerAndClient)" Bounds="1096.4559729205,53.1572477014736,261.2,140.0003" Group="Expanded" IsHubContainer="True" Label="Shared Libraries (across Server and Client)" UseManualLocation="True" />
+  </Nodes>
+  <Links>
+    <Link Source="@104" Target="@108" Category="References" Bounds="816.346463804093,115.690850641248,303.993051682545,33.2826936323105" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="4">
+      <Category Ref="CodeSchema_Calls" />
+    </Link>
+    <Link Source="@104" Target="@72" Category="Implements" Bounds="631.074279785156,116.787628173828,77.7293090820313,82.5005340576172" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="2" />
+    <Link Source="@104" Target="@74" Category="References" Bounds="818.221583432639,104.569713597225,321.291088005199,0.854777063128338" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="10">
+      <Category Ref="CodeSchema_Calls" />
+      <Category Ref="CodeSchema_ReturnTypeLink" />
+    </Link>
+    <Link Source="@104" Target="@98" Category="CodeSchema_Calls" Bounds="617.737378773246,116.787631115767,64.2286535573643,26.5607696881231" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="1" />
+    <Link Source="@106" Target="@108" Category="References" Bounds="343.801583432637,109.321473713361,775.33788582022,45.063675356779" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="48">
+      <Category Ref="CodeSchema_Calls" />
+      <Category Ref="CodeSchema_ReturnTypeLink" />
+    </Link>
+    <Link Source="@106" Target="@52" Bounds="255.097706211499,116.787681494635,1.86796355878323,102.599133172686" />
+    <Link Source="@110" Target="@108" Category="References" Bounds="433.483892932134,234.012276633904,574.720555867023,236.704846859455" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="2" />
+    <Link Source="@110" Target="@74" Category="Implements" Bounds="441.427733308554,234.012276633904,558.598975090379,182.33939671882" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="11">
+      <Category Ref="CodeSchema_Calls" />
+      <Category Ref="CodeSchema_ReturnTypeLink" />
+    </Link>
+    <Link Source="@112" Target="@102" Category="Implements" Bounds="1198.1514110921,-174.076989631904,72.8297007532356,26.883495465759" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="2" />
+    <Link Source="@128" Target="@28" Category="InheritsFrom" Bounds="1831.27610503285,267.440734197563,2.27373675443232E-13,21.0001" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="2">
+      <Category Ref="CodeSchema_Calls" />
+    </Link>
+    <Link Source="@129" Target="@130" Category="References" Bounds="729.874328613281,-206.185928344727,0,21" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="5">
+      <Category Ref="CodeSchema_Calls" />
+    </Link>
+    <Link Source="@130" Target="@108" Category="References" Bounds="1459.77941894531,137.880004882813,756.143188476563,196.012451171875" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="17">
+      <Category Ref="CodeSchema_Calls" />
+    </Link>
+    <Link Source="@130" Target="@128" Category="CodeSchema_Calls" Bounds="2406.41357421875,135.428192138672,478.4130859375,31.8538970947266" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="1" />
+    <Link Source="@130" Target="@131" Category="References" Bounds="729.874328613281,-151.185928344727,0,21" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="26">
+      <Category Ref="CodeSchema_Calls" />
+      <Category Ref="CodeSchema_ReturnTypeLink" />
+    </Link>
+    <Link Source="@130" Target="@28" Category="References" Bounds="2358.76904296875,137.880004882813,313.70166015625,85.7164001464844" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="33">
+      <Category Ref="CodeSchema_Calls" />
+    </Link>
+    <Link Source="@16" Target="@108" Category="References" Bounds="478.314677974321,289.012376633904,524.099740524773,182.177205602549" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="6">
+      <Category Ref="CodeSchema_Calls" />
+    </Link>
+    <Link Source="@16" Target="@74" Category="Implements" Bounds="491.064137925584,289.012376633904,498.384350898468,127.894991400525" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="5">
+      <Category Ref="CodeSchema_Calls" />
+      <Category Ref="CodeSchema_ReturnTypeLink" />
+    </Link>
+    <Link Source="@18" Target="@100" Category="CodeSchema_Calls" Bounds="482.008048372894,-174.625133630107,8.47732084922035,257.417688861453" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="161" />
+    <Link Source="@18" Target="@106" Category="References" Bounds="272.309982568424,-174.625133630107,199.66075842028,259.282031698647" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="14">
+      <Category Ref="CodeSchema_Calls" />
+    </Link>
+    <Link Source="@18" Target="@108" Category="References" Bounds="508.389704784573,-174.625133630107,683.716898088703,318.977450997753" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="90">
+      <Category Ref="CodeSchema_Calls" />
+      <Category Ref="CodeSchema_ReturnTypeLink" />
+    </Link>
+    <Link Source="@18" Target="@26" Category="CodeSchema_Calls" Bounds="384.512953048029,-174.625133630107,91.4575242534979,203.205741488715" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="1" />
+    <Link Source="@18" Target="@52" Bounds="265.547885549413,-174.625133645919,209.422209468686,395.058643514412" />
+    <Link Source="@18" Target="@72" Category="References" Bounds="484.63556351325,-174.625133630107,89.3922623985163,367.667595244184" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="7">
+      <Category Ref="CodeSchema_Calls" />
+    </Link>
+    <Link Source="@2" Target="@108" Category="References" Bounds="1074.6588952567,164.144474804455,491.728839143647,305.253339425356" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="31">
+      <Category Ref="CodeSchema_Calls" />
+    </Link>
+    <Link Source="@2" Target="@128" Category="References" Bounds="1687.54875544622,212.440634197563,92.8241144044609,27.4480407239625" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="2">
+      <Category Ref="CodeSchema_Calls" />
+    </Link>
+    <Link Source="@2" Target="@28" Category="References" Bounds="1657.17346191406,212.440628051758,108.566528320313,82.8455352783203" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="51">
+      <Category Ref="CodeSchema_Calls" />
+    </Link>
+    <Link Source="@26" Target="@100" Category="CodeSchema_Calls" Bounds="401.556884906535,61.7876755778349,55.1405179649749,26.1442126475353" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="58" />
+    <Link Source="@26" Target="@104" Category="CodeSchema_Calls" Bounds="445.288468131195,60.7275387089197,181.431329321518,29.610430403179" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="1" />
+    <Link Source="@26" Target="@106" Category="References" Bounds="292.168842368491,61.7876755778349,56.2062287976824,26.197821325708" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="96">
+      <Category Ref="CodeSchema_Calls" />
+    </Link>
+    <Link Source="@26" Target="@108" Category="References" Bounds="446.847909016557,58.6555695479256,676.388817395238,88.4288449580213" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="107">
+      <Category Ref="CodeSchema_Calls" />
+      <Category Ref="CodeSchema_ReturnTypeLink" />
+    </Link>
+    <Link Source="@26" Target="@52" Bounds="271.500244140625,61.7876739501953,100.270294189453,159.81005859375" />
+    <Link Source="@26" Target="@72" Category="References" Bounds="378.621307373047,61.7876739501953,159.127777099609,136.814376831055" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="28">
+      <Category Ref="CodeSchema_Calls" />
+      <Category Ref="CodeSchema_ReturnTypeLink" />
+      <Category Ref="Implements" />
+    </Link>
+    <Link Source="@26" Target="@74" Category="References" Bounds="447.209916765971,54.0531843463981,692.322362827569,45.8125659439097" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="11">
+      <Category Ref="CodeSchema_Calls" />
+    </Link>
+    <Link Source="@28" Target="@108" Category="References" Bounds="1095.78635544316,274.144674804455,636.423703493051,197.334460211408" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="79">
+      <Category Ref="CodeSchema_ReturnTypeLink" />
+    </Link>
+    <Link Source="@6" Target="@104" Category="CodeSchema_Calls" Bounds="712.193250099304,61.7875311157666,6.82121026329696E-13,21.0001" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="2" />
+    <Link Source="@6" Target="@108" Category="CodeSchema_Calls" Bounds="769.980729438283,61.7875311157666,390.491206792292,84.4670876933573" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="8" />
+    <Link Source="@6" Target="@74" Category="CodeSchema_Calls" Bounds="783.316675108434,57.0744956613898,356.368848127687,39.0171253026498" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="4" />
+    <Link Source="@72" Target="@108" Category="References" Bounds="676.951357325432,169.585592639745,442.250870682334,36.6097689042883" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="7">
+      <Category Ref="CodeSchema_ReturnTypeLink" />
+    </Link>
+    <Link Source="@72" Target="@74" Category="Implements" Bounds="653.742191498022,119.595533857219,490.187900140272,82.1922972585477" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="2">
+      <Category Ref="CodeSchema_ReturnTypeLink" />
+    </Link>
+    <Link Source="@74" Target="@108" Category="References" Bounds="1226.8701171875,118.030113220215,0,20.9999771118164" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="5">
+      <Category Ref="CodeSchema_ReturnTypeLink" />
+    </Link>
+    <Link Source="@8" Target="(@7 Namespace=Geres.Samples.ThumbnailGeneratorClient.Properties)" Category="Contains" Bounds="1528.15881347656,25.9600067138672,6.4901123046875,29.9999961853027" FetchingParent="@8" />
+    <Link Source="@8" Target="@129" Category="Contains" Bounds="1528.15881347656,25.9600067138672,6.4901123046875,29.9999961853027" FetchingParent="@8" />
+    <Link Source="@8" Target="@130" Category="Contains" Bounds="1528.15881347656,25.9600067138672,6.4901123046875,29.9999961853027" FetchingParent="@8" />
+    <Link Source="@8" Target="@131" Category="Contains" Bounds="1528.15881347656,25.9600067138672,6.4901123046875,29.9999961853027" FetchingParent="@8" />
+    <Link Source="@92" Target="@100" Category="CodeSchema_Calls" Bounds="807.200165502371,-153.841776532847,483.113807220788,250.85318917767" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="13" />
+    <Link Source="@92" Target="@102" Category="References" Bounds="1155.84468663884,-229.077089631904,1.59161572810262E-12,76.0002" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="13">
+      <Category Ref="CodeSchema_Calls" />
+      <Category Ref="CodeSchema_ReturnTypeLink" />
+      <Category Ref="Implements" />
+    </Link>
+    <Link Source="@92" Target="@94" Category="CodeSchema_Calls" Bounds="1075.85965270835,-229.077089631904,54.0759895425849,26.0893400452067" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="1" />
+    <Link Source="@94" Target="@100" Category="CodeSchema_Calls" Bounds="806.719162755449,-98.8416765328466,370.043490143787,195.791424079564" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="16" />
+    <Link Source="@94" Target="@102" Category="References" Bounds="1067.75372985442,-174.076990876219,54.0759919564907,26.0893423902958" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="11">
+      <Category Ref="CodeSchema_Calls" />
+      <Category Ref="CodeSchema_ReturnTypeLink" />
+      <Category Ref="Implements" />
+    </Link>
+    <Link Source="@94" Target="@106" Category="References" Bounds="299.352742470192,-174.076990876219,708.771303993281,262.736450252431" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="97">
+      <Category Ref="CodeSchema_Calls" />
+    </Link>
+    <Link Source="@94" Target="@108" Category="References" Bounds="1051.55442390854,-7.6721285798308,103.937493842932,473.026383537749" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="36">
+      <Category Ref="CodeSchema_Calls" />
+    </Link>
+    <Link Source="@94" Target="@52" Category="CodeSchema_Calls" Bounds="285.633079280856,-174.076990876219,733.193835815778,398.167256586565" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="3" />
+    <Link Source="@96" Target="@100" Category="CodeSchema_Calls" Bounds="491.628659457253,-119.625033661731,4.09957012466242,202.414557808214" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="49" />
+    <Link Source="@96" Target="@108" Category="References" Bounds="527.193761294314,-119.625033661731,660.294946653968,264.436444694458" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="17">
+      <Category Ref="CodeSchema_Calls" />
+    </Link>
+    <Link Source="@96" Target="@26" Category="CodeSchema_Calls" Bounds="388.50390367746,-119.625033661731,99.1547470105068,148.921329260769" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="2" />
+    <Link Source="@96" Target="@52" Bounds="267.679751561404,-119.625033645919,220.216242519442,340.453444551154" />
+    <Link Source="@96" Target="@72" Category="References" Bounds="498.984023209914,-119.625033661731,75.1045045254653,312.661656113412" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="4">
+      <Category Ref="CodeSchema_Calls" />
+    </Link>
+    <Link Source="@98" Target="@108" Category="References" Bounds="681.006583432638,159.502978292273,438.117742934186,0.92624024826884" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="2">
+      <Category Ref="CodeSchema_Calls" />
+    </Link>
+    <Link Source="@98" Target="@72" Category="References" Bounds="579.193250099305,171.787731115767,0,21.0001" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="7">
+      <Category Ref="CodeSchema_Calls" />
+      <Category Ref="Implements" />
+    </Link>
+    <Link Source="@98" Target="@74" Category="Implements" Bounds="680.921015121092,112.901727405599,458.622303559256,37.9649384684393" IsSourceVirtualized="True" IsTargetVirtualized="True" Weight="5">
+      <Category Ref="CodeSchema_Calls" />
+      <Category Ref="CodeSchema_ReturnTypeLink" />
+    </Link>
+    <Link Source="AzureHostingFront-Ends" Target="@18" Category="Contains" />
+    <Link Source="AzureHostingFront-Ends" Target="@96" Category="Contains" />
+    <Link Source="Client-side" Target="@128" Category="Contains" />
+    <Link Source="Client-side" Target="@2" Category="Contains" />
+    <Link Source="Client-side" Target="@28" Category="Contains" />
+    <Link Source="Client-side" Target="@4" Category="Contains" />
+    <Link Source="Client-side" Target="@8" Category="Contains" />
+    <Link Source="GeResCoreEngine" Target="@100" Category="Contains" />
+    <Link Source="GeResCoreEngine" Target="@104" Category="Contains" />
+    <Link Source="GeResCoreEngine" Target="@106" Category="Contains" />
+    <Link Source="GeResCoreEngine" Target="@26" Category="Contains" />
+    <Link Source="GeResCoreEngine" Target="@52" Category="Contains" />
+    <Link Source="GeResCoreEngine" Target="@6" Category="Contains" />
+    <Link Source="GeResCoreEngine" Target="@72" Category="Contains" />
+    <Link Source="GeResCoreEngine" Target="@98" Category="Contains" />
+    <Link Source="GeResCustomAutoScalerWithCustomPolicies" Target="@102" Category="Contains" />
+    <Link Source="GeResCustomAutoScalerWithCustomPolicies" Target="@112" Category="Contains" />
+    <Link Source="GeResCustomAutoScalerWithCustomPolicies" Target="@92" Category="Contains" />
+    <Link Source="GeResCustomAutoScalerWithCustomPolicies" Target="@94" Category="Contains" />
+    <Link Source="JobCustomerImplementations" Target="@110" Category="Contains" />
+    <Link Source="JobCustomerImplementations" Target="@16" Category="Contains" />
+    <Link Source="SharedLibraries(acrossServerAndClient)" Target="@108" Category="Contains" />
+    <Link Source="SharedLibraries(acrossServerAndClient)" Target="@74" Category="Contains" />
+  </Links>
+  <Categories>
+    <Category Id="CodeSchema_Assembly" Label="Assembly" BasedOn="File" CanBeDataDriven="True" DefaultAction="Microsoft.Contains" Icon="CodeSchema_Assembly" NavigationActionLabel="Assemblies" />
+    <Category Id="CodeSchema_Calls" Label="Calls" CanBeDataDriven="True" CanLinkedNodesBeDataDriven="True" IncomingActionLabel="Called By" OutgoingActionLabel="Calls" />
+    <Category Id="CodeSchema_Namespace" Label="Namespace" CanBeDataDriven="True" DefaultAction="Node:Both:CodeSchema_Type" Icon="CodeSchema_Namespace" NavigationActionLabel="Namespaces" />
+    <Category Id="CodeSchema_ReturnTypeLink" Label="Return" CanBeDataDriven="True" CanLinkedNodesBeDataDriven="True" IncomingActionLabel="Return types" OutgoingActionLabel="Return types" />
+    <Category Id="Contains" Label="Contains" Description="Whether the source of the link contains the target object" CanBeDataDriven="False" CanLinkedNodesBeDataDriven="True" IncomingActionLabel="Contained By" IsContainment="True" OutgoingActionLabel="Contains" />
+    <Category Id="File" Label="File" CanBeDataDriven="True" DefaultAction="Microsoft.Contains" Icon="File" NavigationActionLabel="Files" />
+    <Category Id="FileSystem.Category.FileOfType.dll" BasedOn="CodeSchema_Assembly" CanBeDataDriven="True" IsProviderRoot="False" />
+    <Category Id="FileSystem.Category.FileOfType.exe" BasedOn="CodeSchema_Assembly" CanBeDataDriven="True" IsProviderRoot="False" />
+    <Category Id="Implements" Label="Implements" CanBeDataDriven="True" CanLinkedNodesBeDataDriven="True" IncomingActionLabel="Implemented by" OutgoingActionLabel="Implements" />
+    <Category Id="InheritsFrom" Label="Inherits From" CanBeDataDriven="True" CanLinkedNodesBeDataDriven="True" IncomingActionLabel="Inherited By" OutgoingActionLabel="Inherits From" />
+    <Category Id="References" Label="References" CanBeDataDriven="True" CanLinkedNodesBeDataDriven="True" IncomingActionLabel="Referenced By" OutgoingActionLabel="References" />
+  </Categories>
+  <Properties>
+    <Property Id="AssemblyTimestamp" DataType="System.DateTime" />
+    <Property Id="Bounds" DataType="System.Windows.Rect" />
+    <Property Id="CanBeDataDriven" Label="CanBeDataDriven" Description="CanBeDataDriven" DataType="System.Boolean" />
+    <Property Id="CanLinkedNodesBeDataDriven" Label="CanLinkedNodesBeDataDriven" Description="CanLinkedNodesBeDataDriven" DataType="System.Boolean" />
+    <Property Id="CodeSchemaProperty_StrongName" Label="StrongName" Description="StrongName" DataType="System.String" />
+    <Property Id="DataVirtualized" Label="Data Virtualized" Description="If true, the graph can contain nodes and links that represent data for virtualized nodes/links (i.e. not actually created in the graph)." DataType="System.Boolean" />
+    <Property Id="DefaultAction" Label="DefaultAction" Description="DefaultAction" DataType="System.String" />
+    <Property Id="DelayedChildNodesState" Label="Delayed Child Nodes State" Description="Unspecified if the delayed child nodes state is not specified. NotFetched if the group contains child nodes that are not fetched into the graph yet. Fetched if the group has all its delayed child nodes already fetched." DataType="Microsoft.VisualStudio.GraphModel.DelayedDataState" />
+    <Property Id="DelayedCrossGroupLinksState" Label="Delayed Cross-Group Links State" Description="Unspecified if the delayed cross-group links state is not specified. NotFetched if delayed cross-group links on this node are not fetched into the graph yet. Fetched if all delayed cross-group links have already fetched." DataType="Microsoft.VisualStudio.GraphModel.DelayedDataState" />
+    <Property Id="ErrorMessage" Label="Error" Description="Error" DataType="System.String" />
+    <Property Id="Expression" DataType="System.String" />
+    <Property Id="FetchedChildrenCount" DataType="System.Int32" />
+    <Property Id="FetchingParent" DataType="Microsoft.VisualStudio.GraphModel.GraphNodeId" />
+    <Property Id="FilePath" Label="File Path" Description="File Path" DataType="System.String" />
+    <Property Id="GraphDirection" DataType="Microsoft.VisualStudio.Diagrams.Layout.LayoutOrientation" />
+    <Property Id="Group" Label="Group" Description="Display the node as a group" DataType="Microsoft.VisualStudio.GraphModel.GraphGroupStyle" />
+    <Property Id="GroupLabel" DataType="System.String" />
+    <Property Id="Hub" Label="Hub" Description="Node is in the top 10% of highly connected nodes" DataType="System.Int32" />
+    <Property Id="Icon" Label="Icon" Description="Icon" DataType="System.String" />
+    <Property Id="IncomingActionLabel" Label="IncomingActionLabel" Description="IncomingActionLabel" DataType="System.String" />
+    <Property Id="IsContainment" DataType="System.Boolean" />
+    <Property Id="IsEnabled" DataType="System.Boolean" />
+    <Property Id="IsHubContainer" Label="Hub Container" Description="This group contains a node marked with the IsHub property" DataType="System.Boolean" />
+    <Property Id="IsProviderRoot" Label="IsProviderRoot" Description="IsProviderRoot" DataType="System.Boolean" />
+    <Property Id="IsSourceVirtualized" Label="Link Source Virtualized" Description="If true, the link source end contains data for virtualized nodes/links (i.e. not actually created in the graph)." DataType="System.Boolean" />
+    <Property Id="IsTargetVirtualized" Label="Link Target Virtualized" Description="If true, the link target end contains data for virtualized nodes/links (i.e. not actually created in the graph)." DataType="System.Boolean" />
+    <Property Id="Label" Label="Label" Description="Displayable label of an Annotatable object" DataType="System.String" />
+    <Property Id="Layout" DataType="System.String" />
+    <Property Id="NavigationActionLabel" Label="NavigationActionLabel" Description="NavigationActionLabel" DataType="System.String" />
+    <Property Id="OutgoingActionLabel" Label="OutgoingActionLabel" Description="OutgoingActionLabel" DataType="System.String" />
+    <Property Id="TargetType" DataType="System.Type" />
+    <Property Id="ToolTip" DataType="System.String" />
+    <Property Id="UseManualLocation" DataType="System.Boolean" />
+    <Property Id="Value" DataType="System.String" />
+    <Property Id="ValueLabel" DataType="System.String" />
+    <Property Id="Visibility" Label="Visibility" Description="Defines whether a node in the graph is visible or not" DataType="System.Windows.Visibility" />
+    <Property Id="Weight" Label="Weight" Description="Weight" DataType="System.Double" />
+  </Properties>
+  <QualifiedNames>
+    <Name Id="Assembly" Label="Assembly" ValueType="Uri" />
+    <Name Id="Namespace" Label="Namespace" ValueType="System.String" />
+  </QualifiedNames>
+  <IdentifierAliases>
+    <Alias n="1" Uri="Assembly=$(d9aac0b9-81b6-4bd3-a7f4-8a2ce0b9a139.OutputPathUri)" />
+    <Alias n="2" Id="(@1)" />
+    <Alias n="3" Uri="Assembly=$(673b38c0-c387-4d30-9888-2403e87765da.OutputPathUri)" />
+    <Alias n="4" Id="(@3)" />
+    <Alias n="5" Uri="Assembly=$(6ce4eb23-2f82-4429-92a5-9032bc1c5d0f.OutputPathUri)" />
+    <Alias n="6" Id="(@5)" />
+    <Alias n="7" Uri="Assembly=$(458c6222-95a7-4af5-a341-c74d9a285e0c.OutputPathUri)" />
+    <Alias n="8" Id="(@7)" />
+    <Alias n="15" Uri="Assembly=$(4fde8b47-2b57-4a69-95d1-e6fc6a43f4d6.OutputPathUri)" />
+    <Alias n="16" Id="(@15)" />
+    <Alias n="17" Uri="Assembly=$(cc987857-ddad-4a35-bd81-6ad7819675aa.OutputPathUri)" />
+    <Alias n="18" Id="(@17)" />
+    <Alias n="25" Uri="Assembly=$(4d1c307d-17d4-43f8-aa0b-7f4bf20ca1d7.OutputPathUri)" />
+    <Alias n="26" Id="(@25)" />
+    <Alias n="27" Uri="Assembly=$(4b769607-a5bf-4813-b2bc-c3b1202bd9b7.OutputPathUri)" />
+    <Alias n="28" Id="(@27)" />
+    <Alias n="51" Uri="Assembly=$(974252fd-1725-4b71-ba03-78557a3f1f8a.OutputPathUri)" />
+    <Alias n="52" Id="(@51)" />
+    <Alias n="71" Uri="Assembly=$(a80005c8-8677-4122-ab48-446c92f5c294.OutputPathUri)" />
+    <Alias n="72" Id="(@71)" />
+    <Alias n="73" Uri="Assembly=$(4c62427a-679d-41a6-9594-5de2061c0d3a.OutputPathUri)" />
+    <Alias n="74" Id="(@73)" />
+    <Alias n="91" Uri="Assembly=$(25fe0f1b-a0a1-4c5c-a0ce-6308893625f1.OutputPathUri)" />
+    <Alias n="92" Id="(@91)" />
+    <Alias n="93" Uri="Assembly=$(fb048276-48b1-47ea-a06d-3c6b9fcac660.OutputPathUri)" />
+    <Alias n="94" Id="(@93)" />
+    <Alias n="95" Uri="Assembly=$(01e6eeef-9a96-4866-90c3-805644f19103.OutputPathUri)" />
+    <Alias n="96" Id="(@95)" />
+    <Alias n="97" Uri="Assembly=$(7d44ce4e-347e-4e9f-b7c1-222960b51376.OutputPathUri)" />
+    <Alias n="98" Id="(@97)" />
+    <Alias n="99" Uri="Assembly=$(1302b5e7-839b-457d-bb16-e34776c3cdb6.OutputPathUri)" />
+    <Alias n="100" Id="(@99)" />
+    <Alias n="101" Uri="Assembly=$(ea57a5d5-70e2-4ded-83df-2216dd11efe0.OutputPathUri)" />
+    <Alias n="102" Id="(@101)" />
+    <Alias n="103" Uri="Assembly=$(722480f6-46f9-475a-89b1-27a758e34a28.OutputPathUri)" />
+    <Alias n="104" Id="(@103)" />
+    <Alias n="105" Uri="Assembly=$(251d260f-29ce-42aa-b56f-a2fc9d45f71d.OutputPathUri)" />
+    <Alias n="106" Id="(@105)" />
+    <Alias n="107" Uri="Assembly=$(28e95b9c-4e68-44df-8595-395a7693905f.OutputPathUri)" />
+    <Alias n="108" Id="(@107)" />
+    <Alias n="109" Uri="Assembly=$(aff84ed7-8814-410d-ba73-345b726f1864.OutputPathUri)" />
+    <Alias n="110" Id="(@109)" />
+    <Alias n="111" Uri="Assembly=$(0c89398a-6633-4159-880a-65149487ba5d.OutputPathUri)" />
+    <Alias n="112" Id="(@111)" />
+    <Alias n="127" Uri="Assembly=$(58b5bb89-f248-4b02-bb86-6c034e0cf4fa.OutputPathUri)" />
+    <Alias n="128" Id="(@127)" />
+    <Alias n="129" Id="(@7 Namespace=Geres.Samples.ThumbnailGeneratorClient)" />
+    <Alias n="130" Id="(@7 Namespace=Geres.Samples.ThumbnailGeneratorClient.Controllers)" />
+    <Alias n="131" Id="(@7 Namespace=Geres.Samples.ThumbnailGeneratorClient.ViewModels)" />
+  </IdentifierAliases>
+  <Styles>
+    <Style TargetType="Node" GroupLabel="Hub" ToolTip="Node is in the top 10% of highly connected nodes" ValueLabel="Hub">
+      <Condition Expression="HasValue(&quot;Hub&quot;)" />
+      <Setter Property="Background" Value="#FFFBA8A9" />
+    </Style>
+    <Style TargetType="Group" GroupLabel="Hub" ToolTip="Node is in the top 10% of highly connected nodes" ValueLabel="Hub Container">
+      <Condition Expression="IsHubContainer" />
+      <Setter Property="Stroke" Value="#FFFBA8A9" />
+      <Setter Property="StrokeThickness" Value="6" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Results" ValueLabel="True">
+      <Condition Expression="HasCategory('QueryResult')" />
+      <Setter Property="Background" Value="#FFBCFFBE" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Assembly" ValueLabel="Has category">
+      <Condition Expression="HasCategory('CodeSchema_Assembly')" />
+      <Setter Property="Background" Value="#FF094167" />
+      <Setter Property="Stroke" Value="#FF094167" />
+      <Setter Property="Icon" Value="CodeSchema_Assembly" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Namespace" ValueLabel="Has category">
+      <Condition Expression="HasCategory('CodeSchema_Namespace')" />
+      <Setter Property="Background" Value="#FF0E619A" />
+      <Setter Property="Stroke" Value="#FF0E619A" />
+      <Setter Property="Icon" Value="CodeSchema_Namespace" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Interface" ValueLabel="Has category">
+      <Condition Expression="HasCategory('CodeSchema_Interface')" />
+      <Setter Property="Background" Value="#FF1382CE" />
+      <Setter Property="Stroke" Value="#FF1382CE" />
+      <Setter Property="Icon" Value="CodeSchema_Interface" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Struct" ValueLabel="Has category">
+      <Condition Expression="HasCategory('CodeSchema_Struct')" />
+      <Setter Property="Background" Value="#FF1382CE" />
+      <Setter Property="Stroke" Value="#FF1382CE" />
+      <Setter Property="Icon" Value="CodeSchema_Struct" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Enumeration" ValueLabel="Has category">
+      <Condition Expression="HasCategory('CodeSchema_Enum')" />
+      <Setter Property="Background" Value="#FF1382CE" />
+      <Setter Property="Stroke" Value="#FF1382CE" />
+      <Setter Property="Icon" Value="CodeSchema_Enum" />
+      <Setter Property="LayoutSettings" Value="List" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Delegate" ValueLabel="Has category">
+      <Condition Expression="HasCategory('CodeSchema_Delegate')" />
+      <Setter Property="Background" Value="#FF1382CE" />
+      <Setter Property="Stroke" Value="#FF1382CE" />
+      <Setter Property="Icon" Value="CodeSchema_Delegate" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Class" ValueLabel="Has category">
+      <Condition Expression="HasCategory('CodeSchema_Type')" />
+      <Setter Property="Background" Value="#FF1382CE" />
+      <Setter Property="Stroke" Value="#FF1382CE" />
+      <Setter Property="Icon" Value="CodeSchema_Class" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Property" ValueLabel="Has category">
+      <Condition Expression="HasCategory('CodeSchema_Property')" />
+      <Setter Property="Background" Value="#FFE0E0E0" />
+      <Setter Property="Stroke" Value="#FFE0E0E0" />
+      <Setter Property="Icon" Value="CodeSchema_Property" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Method" ValueLabel="Has category">
+      <Condition Expression="HasCategory('CodeSchema_Method') Or HasCategory('CodeSchema_CallStackUnresolvedMethod')" />
+      <Setter Property="Background" Value="#FFE0E0E0" />
+      <Setter Property="Stroke" Value="#FFE0E0E0" />
+      <Setter Property="Icon" Value="CodeSchema_Method" />
+      <Setter Property="LayoutSettings" Value="List" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Event" ValueLabel="Has category">
+      <Condition Expression="HasCategory('CodeSchema_Event')" />
+      <Setter Property="Background" Value="#FFE0E0E0" />
+      <Setter Property="Stroke" Value="#FFE0E0E0" />
+      <Setter Property="Icon" Value="CodeSchema_Event" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Field" ValueLabel="Has category">
+      <Condition Expression="HasCategory('CodeSchema_Field')" />
+      <Setter Property="Background" Value="#FFE0E0E0" />
+      <Setter Property="Stroke" Value="#FFE0E0E0" />
+      <Setter Property="Icon" Value="CodeSchema_Field" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Out Parameter" ValueLabel="True">
+      <Condition Expression="CodeSchemaProperty_IsOut = 'True'" />
+      <Setter Property="Icon" Value="CodeSchema_OutParameter" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Parameter" ValueLabel="True">
+      <Condition Expression="HasCategory('CodeSchema_Parameter')" />
+      <Setter Property="Icon" Value="CodeSchema_Parameter" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Local Variable" ValueLabel="True">
+      <Condition Expression="HasCategory('CodeSchema_LocalExpression')" />
+      <Setter Property="Icon" Value="CodeSchema_LocalExpression" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Externals" ValueLabel="Has category">
+      <Condition Expression="HasCategory('Externals')" />
+      <Setter Property="Background" Value="#FF424242" />
+      <Setter Property="Stroke" Value="#FF424242" />
+    </Style>
+    <Style TargetType="Link" GroupLabel="Inherits From" ValueLabel="True" Visibility="Hidden">
+      <Condition Expression="HasCategory('InheritsFrom') And Target.HasCategory('CodeSchema_Class')" />
+      <Setter Property="TargetDecorator" Value="OpenArrow" />
+    </Style>
+    <Style TargetType="Link" GroupLabel="Implements" ValueLabel="True" Visibility="Hidden">
+      <Condition Expression="HasCategory('Implements') And Target.HasCategory('CodeSchema_Interface')" />
+      <Setter Property="TargetDecorator" Value="OpenArrow" />
+    </Style>
+    <Style TargetType="Link" GroupLabel="Field Read" ValueLabel="True" Visibility="Hidden">
+      <Condition Expression="Target.HasCategory('CodeSchema_Field') And HasCategory('CodeSchema_FieldRead')" />
+      <Setter Property="StrokeDashArray" Value="2 2" />
+    </Style>
+    <Style TargetType="Link" GroupLabel="Comment Link" ValueLabel="True" Visibility="Hidden">
+      <Condition Expression="Source.HasCategory('Comment')" />
+      <Setter Property="Stroke" Value="#FFE5C365" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Cursor Location Changed" ValueLabel="True" Visibility="Hidden">
+      <Condition Expression="IsCursorLocation" />
+      <Setter Property="IndicatorWest" Value="WestIndicator" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Disabled Breakpoint Location Changed" ValueLabel="True" Visibility="Hidden">
+      <Condition Expression="DisabledBreakpointCount" />
+      <Setter Property="IndicatorWest" Value="WestIndicator" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Enabled Breakpoint Location Changed" ValueLabel="True" Visibility="Hidden">
+      <Condition Expression="EnabledBreakpointCount" />
+      <Setter Property="IndicatorWest" Value="WestIndicator" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Instruction Pointer Location Changed" ValueLabel="True" Visibility="Hidden">
+      <Condition Expression="IsInstructionPointerLocation" />
+      <Setter Property="IndicatorWest" Value="WestIndicator" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Current Callstack Changed" ValueLabel="True" Visibility="Hidden">
+      <Condition Expression="IsCurrentCallstackFrame" />
+      <Setter Property="IndicatorWest" Value="WestIndicator" />
+    </Style>
+    <Style TargetType="Node" GroupLabel="Comment" ValueLabel="Has comment">
+      <Condition Expression="HasCategory('Comment')" />
+      <Setter Property="Background" Value="#FFFFFACD" />
+      <Setter Property="Stroke" Value="#FFE5C365" />
+      <Setter Property="StrokeThickness" Value="1" />
+      <Setter Property="NodeRadius" Value="2" />
+      <Setter Property="MaxWidth" Value="250" />
+    </Style>
+  </Styles>
+  <Paths>
+    <Path Id="01e6eeef-9a96-4866-90c3-805644f19103.OutputPath" Value="C:\Work\Git\GERES-.NET\main\JobProcessor\bin\Debug\Geres.Azure.PaaS.JobProcessor.dll" />
+    <Path Id="01e6eeef-9a96-4866-90c3-805644f19103.OutputPathUri" Value="file:///C:/Work/Git/GERES-.NET/main/JobProcessor/bin/Debug/Geres.Azure.PaaS.JobProcessor.dll" />
+    <Path Id="0c89398a-6633-4159-880a-65149487ba5d.OutputPath" Value="C:\Work\Git\GERES-.NET\main\Samples\GeresAutoscalePolicySamples\bin\Debug\GeresAutoscalerPolicySamples.dll" />
+    <Path Id="0c89398a-6633-4159-880a-65149487ba5d.OutputPathUri" Value="file:///C:/Work/Git/GERES-.NET/main/Samples/GeresAutoscalePolicySamples/bin/Debug/GeresAutoscalerPolicySamples.dll" />
+    <Path Id="1302b5e7-839b-457d-bb16-e34776c3cdb6.OutputPath" Value="C:\Work\Git\GERES-.NET\main\Geres.Diagnostics\bin\Debug\Geres.Diagnostics.dll" />
+    <Path Id="1302b5e7-839b-457d-bb16-e34776c3cdb6.OutputPathUri" Value="file:///C:/Work/Git/GERES-.NET/main/Geres.Diagnostics/bin/Debug/Geres.Diagnostics.dll" />
+    <Path Id="251d260f-29ce-42aa-b56f-a2fc9d45f71d.OutputPath" Value="C:\Work\Git\GERES-.NET\main\Geres.Repositories\bin\Debug\Geres.Repositories.dll" />
+    <Path Id="251d260f-29ce-42aa-b56f-a2fc9d45f71d.OutputPathUri" Value="file:///C:/Work/Git/GERES-.NET/main/Geres.Repositories/bin/Debug/Geres.Repositories.dll" />
+    <Path Id="25fe0f1b-a0a1-4c5c-a0ce-6308893625f1.OutputPath" Value="C:\Work\Git\GERES-.NET\main\AutoScaler\bin\Debug\Geres.Azure.PaaS.AutoScaler.dll" />
+    <Path Id="25fe0f1b-a0a1-4c5c-a0ce-6308893625f1.OutputPathUri" Value="file:///C:/Work/Git/GERES-.NET/main/AutoScaler/bin/Debug/Geres.Azure.PaaS.AutoScaler.dll" />
+    <Path Id="28e95b9c-4e68-44df-8595-395a7693905f.OutputPath" Value="C:\Work\Git\GERES-.NET\main\Geres.Common.Entities\bin\Debug\Geres.Common.Entities.dll" />
+    <Path Id="28e95b9c-4e68-44df-8595-395a7693905f.OutputPathUri" Value="file:///C:/Work/Git/GERES-.NET/main/Geres.Common.Entities/bin/Debug/Geres.Common.Entities.dll" />
+    <Path Id="458c6222-95a7-4af5-a341-c74d9a285e0c.OutputPath" Value="C:\Work\Git\GERES-.NET\main\Samples\End2End\Geres.Samples.ThumbnailGeneratorClient\bin\Debug\Geres.Samples.ThumbnailGeneratorClient.exe" />
+    <Path Id="458c6222-95a7-4af5-a341-c74d9a285e0c.OutputPathUri" Value="file:///C:/Work/Git/GERES-.NET/main/Samples/End2End/Geres.Samples.ThumbnailGeneratorClient/bin/Debug/Geres.Samples.ThumbnailGeneratorClient.exe" />
+    <Path Id="4b769607-a5bf-4813-b2bc-c3b1202bd9b7.OutputPath" Value="C:\Work\Git\GERES-.NET\main\Geres.ClientSdk.Core\bin\Debug\Geres.ClientSdk.Core.dll" />
+    <Path Id="4b769607-a5bf-4813-b2bc-c3b1202bd9b7.OutputPathUri" Value="file:///C:/Work/Git/GERES-.NET/main/Geres.ClientSdk.Core/bin/Debug/Geres.ClientSdk.Core.dll" />
+    <Path Id="4c62427a-679d-41a6-9594-5de2061c0d3a.OutputPath" Value="C:\Work\Git\GERES-.NET\main\Geres.Common\bin\Debug\Geres.Common.dll" />
+    <Path Id="4c62427a-679d-41a6-9594-5de2061c0d3a.OutputPathUri" Value="file:///C:/Work/Git/GERES-.NET/main/Geres.Common/bin/Debug/Geres.Common.dll" />
+    <Path Id="4d1c307d-17d4-43f8-aa0b-7f4bf20ca1d7.OutputPath" Value="C:\Work\Git\GERES-.NET\main\Geres.Engine\bin\Debug\Geres.Engine.dll" />
+    <Path Id="4d1c307d-17d4-43f8-aa0b-7f4bf20ca1d7.OutputPathUri" Value="file:///C:/Work/Git/GERES-.NET/main/Geres.Engine/bin/Debug/Geres.Engine.dll" />
+    <Path Id="4fde8b47-2b57-4a69-95d1-e6fc6a43f4d6.OutputPath" Value="C:\Work\Git\GERES-.NET\main\Samples\End2End\Geres.Samples.ThumbnailGeneratorJob\bin\Debug\Geres.Samples.ThumbnailGeneratorJob.dll" />
+    <Path Id="4fde8b47-2b57-4a69-95d1-e6fc6a43f4d6.OutputPathUri" Value="file:///C:/Work/Git/GERES-.NET/main/Samples/End2End/Geres.Samples.ThumbnailGeneratorJob/bin/Debug/Geres.Samples.ThumbnailGeneratorJob.dll" />
+    <Path Id="58b5bb89-f248-4b02-bb86-6c034e0cf4fa.OutputPath" Value="C:\Work\Git\GERES-.NET\main\Geres.ClientSdk.NetFx\bin\Debug\Geres.ClientSdk.NetFx.dll" />
+    <Path Id="58b5bb89-f248-4b02-bb86-6c034e0cf4fa.OutputPathUri" Value="file:///C:/Work/Git/GERES-.NET/main/Geres.ClientSdk.NetFx/bin/Debug/Geres.ClientSdk.NetFx.dll" />
+    <Path Id="673b38c0-c387-4d30-9888-2403e87765da.OutputPath" Value="C:\Work\Git\GERES-.NET\main\Samples\End2End\ThumbnailProducerApp\bin\Debug\ThumbnailProducerApp.exe" />
+    <Path Id="673b38c0-c387-4d30-9888-2403e87765da.OutputPathUri" Value="file:///C:/Work/Git/GERES-.NET/main/Samples/End2End/ThumbnailProducerApp/bin/Debug/ThumbnailProducerApp.exe" />
+    <Path Id="6ce4eb23-2f82-4429-92a5-9032bc1c5d0f.OutputPath" Value="C:\Work\Git\GERES-.NET\main\Geres.Engine.JobWorkerProcess\bin\Debug\geresjobwp.exe" />
+    <Path Id="6ce4eb23-2f82-4429-92a5-9032bc1c5d0f.OutputPathUri" Value="file:///C:/Work/Git/GERES-.NET/main/Geres.Engine.JobWorkerProcess/bin/Debug/geresjobwp.exe" />
+    <Path Id="722480f6-46f9-475a-89b1-27a758e34a28.OutputPath" Value="C:\Work\Git\GERES-.NET\main\Geres.Engine.JobFactories\bin\Debug\Geres.Engine.JobFactories.dll" />
+    <Path Id="722480f6-46f9-475a-89b1-27a758e34a28.OutputPathUri" Value="file:///C:/Work/Git/GERES-.NET/main/Geres.Engine.JobFactories/bin/Debug/Geres.Engine.JobFactories.dll" />
+    <Path Id="7d44ce4e-347e-4e9f-b7c1-222960b51376.OutputPath" Value="C:\Work\Git\GERES-.NET\main\Geres.Engine.BuiltInJobs\bin\Debug\Geres.Engine.BuiltInJobs.dll" />
+    <Path Id="7d44ce4e-347e-4e9f-b7c1-222960b51376.OutputPathUri" Value="file:///C:/Work/Git/GERES-.NET/main/Geres.Engine.BuiltInJobs/bin/Debug/Geres.Engine.BuiltInJobs.dll" />
+    <Path Id="974252fd-1725-4b71-ba03-78557a3f1f8a.OutputPath" Value="C:\Work\Git\GERES-.NET\main\Geres.Util\bin\Debug\Geres.Util.dll" />
+    <Path Id="974252fd-1725-4b71-ba03-78557a3f1f8a.OutputPathUri" Value="file:///C:/Work/Git/GERES-.NET/main/Geres.Util/bin/Debug/Geres.Util.dll" />
+    <Path Id="a80005c8-8677-4122-ab48-446c92f5c294.OutputPath" Value="C:\Work\Git\GERES-.NET\main\Geres.Engine.Common\bin\Debug\Geres.Engine.Common.dll" />
+    <Path Id="a80005c8-8677-4122-ab48-446c92f5c294.OutputPathUri" Value="file:///C:/Work/Git/GERES-.NET/main/Geres.Engine.Common/bin/Debug/Geres.Engine.Common.dll" />
+    <Path Id="aff84ed7-8814-410d-ba73-345b726f1864.OutputPath" Value="C:\Work\Git\GERES-.NET\main\Samples\GeresSimpleJobSamples\bin\Debug\GeresSimpleJobSamples.dll" />
+    <Path Id="aff84ed7-8814-410d-ba73-345b726f1864.OutputPathUri" Value="file:///C:/Work/Git/GERES-.NET/main/Samples/GeresSimpleJobSamples/bin/Debug/GeresSimpleJobSamples.dll" />
+    <Path Id="cc987857-ddad-4a35-bd81-6ad7819675aa.OutputPath" Value="C:\Work\Git\GERES-.NET\main\JobHub\bin\Geres.Azure.PaaS.JobHub.dll" />
+    <Path Id="cc987857-ddad-4a35-bd81-6ad7819675aa.OutputPathUri" Value="file:///C:/Work/Git/GERES-.NET/main/JobHub/bin/Geres.Azure.PaaS.JobHub.dll" />
+    <Path Id="d9aac0b9-81b6-4bd3-a7f4-8a2ce0b9a139.OutputPath" Value="C:\Work\Git\GERES-.NET\main\Samples\GeresJobRequestorSampleConsole\bin\Debug\GeresJobRequestorSampleConsole.exe" />
+    <Path Id="d9aac0b9-81b6-4bd3-a7f4-8a2ce0b9a139.OutputPathUri" Value="file:///C:/Work/Git/GERES-.NET/main/Samples/GeresJobRequestorSampleConsole/bin/Debug/GeresJobRequestorSampleConsole.exe" />
+    <Path Id="ea57a5d5-70e2-4ded-83df-2216dd11efe0.OutputPath" Value="C:\Work\Git\GERES-.NET\main\Geres.AutoScaler.Interfaces\bin\Debug\Geres.AutoScaler.Interfaces.dll" />
+    <Path Id="ea57a5d5-70e2-4ded-83df-2216dd11efe0.OutputPathUri" Value="file:///C:/Work/Git/GERES-.NET/main/Geres.AutoScaler.Interfaces/bin/Debug/Geres.AutoScaler.Interfaces.dll" />
+    <Path Id="fb048276-48b1-47ea-a06d-3c6b9fcac660.OutputPath" Value="C:\Work\Git\GERES-.NET\main\Geres.AutoScaler\bin\Debug\Geres.AutoScaler.dll" />
+    <Path Id="fb048276-48b1-47ea-a06d-3c6b9fcac660.OutputPathUri" Value="file:///C:/Work/Git/GERES-.NET/main/Geres.AutoScaler/bin/Debug/Geres.AutoScaler.dll" />
+  </Paths>
+</DirectedGraph>

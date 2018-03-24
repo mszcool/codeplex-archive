@@ -1,0 +1,54 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:Controls="clr-namespace:MediaServicesManagementClient.Controls" x:Class="MediaServicesManagementClient.MainWindow"
+        Title="Windows Azure Media Services Client" Height="540" Width="800"
+        Loaded="Window_Loaded">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Ribbon VerticalAlignment="Top" TextBlock.TextAlignment="Center">
+            <Ribbon.ApplicationMenu>
+                <RibbonApplicationMenu>
+                    <RibbonApplicationMenuItem Header="Settings" Name="SettingsMenu" Click="SettingsMenu_Click" />
+                    <RibbonApplicationMenuItem Header="Go Online" Name="GoOnlineMenu" Click="GoOnlineMenu_Click" />
+                    <RibbonApplicationMenuItem Header="Exit" Name="ExitMenu" Click="ExitMenu_Click" />
+                </RibbonApplicationMenu>
+            </Ribbon.ApplicationMenu>
+            <RibbonTab Header="Home"  >
+                <RibbonGroup Header="Library" Margin="0">
+                    <RibbonButton Label="Assets" IsEnabled="{Binding AssetsBrowsingEnabled}" LargeImageSource="Images/AssetsLibrary.png" Name="ShowAssetsButton" Click="ShowAssetsButton_Click" />
+                </RibbonGroup>
+                <RibbonGroup Header="Ingest">
+                    <RibbonButton Label="Ingest File" IsEnabled="{Binding IngestContentEnabled}" Name="IngestFileButton" LargeImageSource="Images/IngestFile.png" Click="IngestFileButton_Click" />
+                    <RibbonButton Label="Ingest Directory" IsEnabled="{Binding IngestContentEnabled}" Name="IngestDirectoryButton" LargeImageSource="Images/IngestFolder.png" Click="IngestDirectoryButton_Click" />
+                    <RibbonButton Label="Ingest Blob" IsEnabled="{Binding IngestContentEnabled}" Name="IngestBlobButton" LargeImageSource="Images/IngestBlob.png" Click="IngestBlobButton_Click" />
+                </RibbonGroup>
+                <RibbonGroup Header="Encoding">
+                    <RibbonComboBox Label="Format">
+                        <RibbonGallery SelectedItem="{Binding SelectedEncodingPreset, Mode=TwoWay}">
+                            <RibbonGalleryCategory ItemsSource="{Binding EncodingPresets}" />
+                        </RibbonGallery>
+                    </RibbonComboBox>
+                    <RibbonButton Label="Available Media Processors" IsEnabled="{Binding MediaProcessorBrowsingEnabled}" Name="BrowseProcessorsButton" SmallImageSource="Images/MediaProcessors.png" Click="BrowseProcessorsButton_Click" />
+                    <RibbonButton Label="Encode" IsEnabled="{Binding EncodeAssetsEnabled}" Name="EncodeButton" Height="Auto" LargeImageSource="Images/Encode.png" Click="EncodeButton_Click" />
+                    <RibbonButton Label="Jobs Monitoring" IsEnabled="{Binding JobsBrowsingEnabled}" Name="JobsMonitoringButton" LargeImageSource="Images/Jobs.png" Height="Auto" Click="JobsMonitoringButton_Click" />
+                    <RibbonButton Label="Delete Job" IsEnabled="{Binding JobDeletionEnabled}" Name="JobsDeleteButton" LargeImageSource="Images/Delete.png" Click="JobsDeleteButton_Click" />
+                </RibbonGroup>
+                <RibbonGroup Header="Delivery">
+                    <RibbonButton Label="Publish Asset" IsEnabled="{Binding PublishAssetEnabled}" Name="PublishAssetButton" LargeImageSource="Images/Publish.png" Height="Auto" Margin="0,0,0,-26" Click="PublishAssetButton_Click" />
+                </RibbonGroup>
+            </RibbonTab>
+        </Ribbon>
+
+        <Controls:SettingsView x:Name="SettingsUI" Margin="0" Grid.Row="1" Visibility="{Binding SettingsViewVisibility, Mode=TwoWay}"/>
+        <Controls:AssetView x:Name="AssetsUI" Margin="0" Grid.Row="1" Visibility="{Binding AssetsViewVisibility, Mode=TwoWay}"/>
+        <Controls:JobsView x:Name="JobsUI" Margin="0" Grid.Row="1" Visibility="{Binding JobsViewVisibility, Mode=TwoWay}" />
+
+        <TextBlock Margin="0" Grid.Row="2" TextWrapping="Wrap" Text="{Binding StatusText, Mode=TwoWay}" Background="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" Foreground="{DynamicResource {x:Static SystemColors.HighlightTextBrushKey}}" FontSize="18"/>
+
+    </Grid>
+</Window>

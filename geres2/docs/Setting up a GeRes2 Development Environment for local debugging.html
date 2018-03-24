@@ -1,0 +1,101 @@
+<div class="wikidoc">
+<h3>Setting up a GeRes2 Development Environment for local debugging</h3>
+<p>Setting up a development and production environment is very similar. We start with the easier one which is setting up GeRes2 for development on your local Machine. Please check our requirements-page for details on pre-requisites you need to get started for
+ development.</p>
+<p>Some of the steps described above are described at a greater level of detail in separate wiki-pages. These are listed at the end of this article.</p>
+<ol>
+<li>Create a Service Bus Namespace in the Microsoft Azure Management Portal.<br>
+Since for local debugging we can use the storage emulator shipping with the Microsoft Azure SDK for storage services you don&rsquo;t need to create storage accounts just for local development/debugging. Nevertheless, you need to create a Service Bus Namespace
+ in the Azure Management Portal.
+<ol>
+<li>Note: the SDK library versions we used for GeRes2 development currently do not work with Service Bus 1.1. for Windows Server. Therefore running Service Bus in the public Cloud Microsoft Azure is also required for local debugging.
+</li><li>We will investigate with future releases to update GeRes2 so that it is also compatible with the Windows Azure Pack for Windows Server and thus Service Bus for Windows Server what would enable GeRes2 to run in private clouds, as well.
+</li></ol>
+</li><li>Configure Microsoft Azure Active Directory in the Azure Management Portal.<br>
+GeRes2 leverages Azure Active Directory to prevent unauthorized callers from making use of the GeRes2 WebAPIs. It makes use of the most simple way of authentication and authorization through service credentials, by default. That means you need to perform the
+ steps below.<br>
+<font size="1"><br>
+</font>Note:further details for those including screenshots can be found in the wiki-page &ldquo;Configuring Azure Active Directory for GeRes2&rdquo;.
+<ol>
+<li>Create am Azure AD if you don&rsquo;t have one, yet. Since every Azure subscription gets one directory, by default, you can make use of this one if appropriate for you instead of creating a new one.
+</li><li>Register the GeRes2 JobHub as an application of type WebAPI in your Azure Active Directory.
+<ol>
+<li>Take a note of the &ldquo;APP ID URI&rdquo; setting you have selected as you need to update the GeRes2 configuration based on it later in the process.
+</li></ol>
+</li><li>Register a service-application that consumes the GeRes2 JobHub. Note that when writing this documentation, you need to register service applications as &ldquo;Web API&rdquo; in Azure AD, as well. This UI might be updated in the future to reflect a better
+ wording for service applications, in general, in the future.
+<ol>
+<li>After created, navigate to the Configuration-page of this newly created service application.
+</li><li>Take a note of the ClientID since you need it later for configuring GeRes2 clients such as the included sample console.
+</li><li>Generate a new secret key and take immediate note of it since you need it later for configuring GeRes2 clients such as the included sample console.
+</li></ol>
+</li><li>Finally add a permission to Azure AD that enables the service-application created in step 3 above to call the web API in step 2 above. At the time of writing this documentation, this was only possible through
+<a href="http://graphexplorer.cloudapp.net">http://graphexplorer.cloudapp.net</a> or by using the graph API of Azure Active Directory, directly.
+</li></ol>
+</li><li>Clone the GeRes2 Codeplex repository to your local machine using git.
+<ol>
+<li>Example: <font face="Consolas">git clone </font><a title="https://git01.codeplex.com/geres2" href="https://git01.codeplex.com/geres2"><font face="Consolas">https://git01.codeplex.com/geres2</font></a>
+</li></ol>
+</li><li>Open Visual Studio as an administrator and then open the solution <font face="Consolas">
+GeRes2.sln</font> in Visual Studio.
+<ol>
+<li>Before building, right-click the top-level solution in the Visual Studio solution explorer and select &ldquo;Manage NuGet Packages for Solution&rdquo;.<br>
+<a href="file:///C:/Users/marioszp/AppData/Local/Temp/WindowsLiveWriter1286139640/supfiles9D6093/image_thumb62.png"><img title="image_thumb[6]" src="https://www.codeplex.com/Download?ProjectName=geres2&DownloadId=833466" alt="image_thumb[6]" width="341" height="131" border="0" style="padding-top:0px; padding-left:0px; display:inline; padding-right:0px; border-width:0px"></a>
+</li><li>In the NuGet package manager dialog, select &ldquo;Restore&rdquo; at the very top of the window. This will restore all NuGet packages required for successfully compiling GeRes2. Do this before you do your first build since we use portable libraries that
+ are partially dependent on build-tasks downloaded with those NuGet packages. If you don&rsquo;t do this upfront, your first build will fail and you&rsquo;ll need to do a second build that will then succeed.<br>
+<a href="http://download-codeplex.sec.s-msft.com/Download?ProjectName=geres2&DownloadId=833468"><img title="image_thumb[5]" src="https://www.codeplex.com/Download?ProjectName=geres2&DownloadId=833468" alt="image_thumb[5]" width="414" height="250" border="0" style="padding-top:0px; padding-left:0px; display:inline; padding-right:0px; border-width:0px"></a>
+</li><li>After you&rsquo;ve downloaded the NuGet-packages you can completely re-build the solution &ndash; it should immediately succeed with those actions being taken assuming you have all pre-requisites installed on you machine
+</li></ol>
+</li><li>Update the Service Bus connection strings.<br>
+To get a working version of GeRes2 you now need to update the Azure service configuration file in the
+<font face="Consolas">Geres2_Cloud</font> Microsoft Azure deployment project. Open the file
+<font face="Consolas">ServiceConfiguration.Local.cscfg</font> in the project <font face="Consolas">
+GeRes2_Cloud</font> and update the following configuration settings with the ServiceBus connection string copied from the Azure management portal.
+<ol>
+<li>The configuration setting you need to update is called &ldquo;Geres.Messaging.ServiceBusConnectionString&rdquo;.
+</li><li>You need to update this specific setting to match your Service Bus connection string copied from the management portal for for all three roles, Geres.Azure.PaaS.JobProcessor, Geres.Azure.PaaS.JobHub and Geres.Azure.PaaS.AutoScaler.
+</li></ol>
+</li><li>Update the configuration settings related to Azure Active Directory in the GeRes2 backend.<br>
+Open the file <font face="Consolas">ServiceConfiguration.Local.cscfg</font> in the project
+<font face="Consolas">GeRes2_Cloud</font> and update the following configuration settings depending on the information you&rsquo;ve written down from step 2 above:
+<ol>
+<li>Geres.Security.AzureAdTenant = &lt;yourazureadname&gt;.onmicrosoft.com </li><li>Geres.Security.AzureAdAudienceUri = &lt;your APP ID URI&gt; you have configured as part of step 2.2 above.
+</li></ol>
+</li><li>(optional) Deploy the sample jobs to test your configuration.<br>
+GeRes2 ships with a set of sample jobs which you can deploy to get started quickly and test your configuration. In the case of local debugging, you need to perform the following steps below to deploy the sample jobs.
+<ol>
+<li>Re-build the complete solution. </li><li>Navigate to the directory in your GeRes2 local git repository: .\geres2\jobs\SampleTenant\GeresJobSamples
+</li><li>Create a ZIP archive with the contents of this folder (directly in the root of the ZIP) called
+<font face="Consolas">geresjobsamples.zip</font>. </li><li>Create a container in the Azure emulator development storage (e.g. using a tool such as
+<a href="http://www.cloudberrylab.com/">CloudBerry Labs Storage Explorer</a>) called
+<font face="Consolas">jobprocessorfiles</font>. </li><li>Copy that ZIP-file in a local folder called &ldquo;SampleTenant&rdquo;. </li><li>Upload that folder &ldquo;SampleTenant&rdquo; with the ZIP-package in the <font face="Consolas">
+jobprocessorfiles</font> container so that the resulting BLOB-name of the geresjobsamples.zip file relative to the root of the storage emulator blob storage service URL is
+<font face="Consolas">/jobprocessorfiles/SampleTenant/geresjobsamples.zip</font>.
+</li><li><strong>Note:</strong> the names are case-sensitive, especially &ldquo;SampleTenant&rdquo; in the URL above.
+</li><li><strong>Note:</strong> <a href="http://www.cloudberrylab.com/">CloudBerry Labs Storage Explorer</a> is one of the tools making it very easy to create the directory structures as mentioned above.
+</li></ol>
+</li><li>(optional) Configure the GeresJobRequestorSampleConsole app.config configuration settings to reflect the appropriate authentication information for Azure AD as configured in step 2 earlier:
+<ol>
+<li>Update the setting &ldquo;WindowsAzureADTenant&rdquo; to reflect your Azure Active Directory tenant, e.g.
+<a href="https://login.windows.net/yourazureadtenant.onmicrosoft.com">https://login.windows.net/yourazureadtenant.onmicrosoft.com</a> where yourazureadtenant is the name of the AD created/configured in step 2 earlier.
+</li><li>Update the setting &ldquo;WindowsAzureAdGeresWebApiId&rdquo; with the APP ID URI as configured and written down in step 2.2 earlier.
+</li><li>Update the setting &ldquo;ClientId&rdquo; with the ClientID as taken note from in step 2.3.2 earlier.
+</li><li>Update the setting &ldquo;ClientSecret&rdquo; with the secret key as created and written down in step 2.3.3 earlier.
+</li></ol>
+</li><li>Set Geres2_Cloud as startup project and run the solution in Visual Studio. </li><li>In the running instance of Visual Studio, right-click the project GeresJobRequestorSampleConsole in the solution and select &ldquo;Debug &ndash; Start new Instance&rdquo; from the context menu.
+</li><li>After the console app started, enter the following data to schedule jobs on input request from the console app:
+<ol>
+<li>Enter &ldquo;s&rdquo; for submitting jobs. </li><li>Enter &ldquo;SampleTenant&rdquo; as TenantId &ndash; this needs to match the folder in the jobprocessorfiles-container that contains the ZIP-file with the job-binaries as done in step 7 earlier.
+</li><li>Select either &ldquo;f&rdquo; for the simpler FinancialYearEnd job or &ldquo;u&rdquo; for the more complex UpdateWaitPostings job. More details are available in the section &ldquo;Implementing Jobs and Job-Samples for GeRes2&rdquo;.
+</li><li>Select &ldquo;s&rdquo; for single operations (this is simpler for getting started).
+</li><li>Enter the number of jobs you want to execute. </li><li>Select &ldquo;y&rdquo; for running against the local emulator. </li></ol>
+</li><li>After that you should see the steps executed in the sample console application. It starts by authenticating against Azure AD, then submits jobs against the GeRes2 Web API and subscribes to SignalR notification channels.
+</li></ol>
+<p>With that you should have a working demo-deployment of GeRes2 running locally against the emulator. There are several wiki-pages outlining some of the topics mentioned above at a greater level of detail. These are:</p>
+<p><a title="Configuring Service Bus for GeRes2" href="https://geres2.codeplex.com/wikipage?title=Configuring%20Service%20Bus%20for%20GeRes2">Configuring Service Bus for GeRes2</a></p>
+<p><a title="Configuring Storage for GeRes2" href="https://geres2.codeplex.com/wikipage?title=Configuring%20Storage%20for%20GeRes2">Configuring Storage for GeRes2</a></p>
+<p><a href="https://geres2.codeplex.com/wikipage?title=Configuring%20Azure%20Active%20Directory%20for%20GeRes2">Configuring Azure Active Directory for GeRes2</a></p>
+<p><a href="https://geres2.codeplex.com/wikipage?title=Deploying%20Jobs%20for%20a%20GeRes2-instance%20in%20Blob-Storage">Deploying Jobs for a GeRes2-instance in Blob-storage</a></p>
+<p>Implementing new Jobs to be executed in the GeRes2-framework</p>
+<p>Implementing a client to work against the GeRes2 Web API and SignalR API</p>
+</div><div class="ClearBoth"></div>
